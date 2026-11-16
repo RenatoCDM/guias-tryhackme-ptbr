@@ -95,7 +95,9 @@ grep '^mcsysadmin:' /var/shadow.bak
 exiftool thegrinch.jpg | grep -i -E 'creator|artist|author'
 ```
 
-**Respostas:** `Dec...` (data de nascimento); `San...` (ocupação); `iPh...` (modelo de telefone); `23/...` (data); `Ada...` (nome e sobrenome). Perfis e páginas externas podem ter mudado desde 2019; nesse caso, consulte as capturas arquivadas.
+Perfis e páginas externas podem ter mudado desde 2019; nesse caso, consulte as capturas arquivadas.
+
+**Respostas:** `Dec...` (data de nascimento); `San...` (ocupação); `iPh...` (modelo de telefone); `23/...` (data); `Ada...` (nome e sobrenome).
 
 ## Dia 6 - Data Elf-iltration
 
@@ -245,7 +247,9 @@ openssl pkeyutl -decrypt -inkey private.key \
 cat note2.txt
 ```
 
-Se a versão do OpenSSL não aceitar esse formato de chave, tente `openssl rsautl -decrypt` com os mesmos arquivos. **Respostas:** `24c...` (MD5); `san...` (texto da nota); `THM{ed9...}` (flag).
+Se a versão do OpenSSL não aceitar esse formato de chave, tente `openssl rsautl -decrypt` com os mesmos arquivos.
+
+**Respostas:** `24c...` (MD5); `san...` (texto da nota); `THM{ed9...}` (flag).
 
 ## Dia 13 - Accumulate
 
@@ -273,7 +277,9 @@ dir C:\root.txt /s /b
 type <CAMINHO_ENCONTRADO_PARA_ROOT.TXT>
 ```
 
-**Respostas:** `/re...` (caminho da aplicação); `THM{HAC...}` (flag do usuário); `THM{COI...}` (flag do administrador). A terceira pergunta é opcional na plataforma.
+A terceira pergunta é opcional na plataforma.
+
+**Respostas:** `/re...` (caminho da aplicação); `THM{HAC...}` (flag do usuário); `THM{COI...}` (flag do administrador).
 
 ## Dia 14 - Unknown Storage
 
@@ -285,7 +291,9 @@ aws s3 cp s3://advent-bucket-one/<OBJETO_LISTADO> . --no-sign-request
 cat <OBJETO_LISTADO>
 ```
 
-Também é possível abrir `https://advent-bucket-one.s3.amazonaws.com/<OBJETO_LISTADO>` no navegador. **Respostas:** `emp...` (nome do objeto); `mcc...` (nome de usuário).
+Também é possível abrir `https://advent-bucket-one.s3.amazonaws.com/<OBJETO_LISTADO>` no navegador.
+
+**Respostas:** `emp...` (nome do objeto); `mcc...` (nome de usuário).
 
 ## Dia 15 - LFI
 
@@ -382,7 +390,9 @@ O fórum da porta 3000 armazena notas sem neutralizar HTML. O bot administrador 
 })">
 ```
 
-Se o formulário codificar quebras de linha, escreva a carga em uma única linha. **Resposta:** `256...` (valor hexadecimal do cookie).
+Se o formulário codificar quebras de linha, escreva a carga em uma única linha.
+
+**Resposta:** `256...` (valor hexadecimal do cookie).
 
 ## Dia 19 - Commands
 
@@ -442,7 +452,9 @@ pdf @ main
 # Veja o valor transferido para local_4h antes de eax ser zerado.
 ```
 
-Se quiser conferir dinamicamente, abra com `r2 -d challenge1`, coloque um breakpoint antes da instrução de interesse com `db <ENDEREÇO>`, avance com `dc`, leia os registradores com `dr` e a pilha com `px @ rbp-0xc` ou `px @ rbp-0x4`. **Respostas:** `#` (primeiro valor); `#` (segundo valor); `#` (terceiro valor).
+Se quiser conferir dinamicamente, abra com `r2 -d challenge1`, coloque um breakpoint antes da instrução de interesse com `db <ENDEREÇO>`, avance com `dc`, leia os registradores com `dr` e a pilha com `px @ rbp-0xc` ou `px @ rbp-0x4`.
+
+**Respostas:** `#` (primeiro valor); `#` (segundo valor); `#` (terceiro valor).
 
 ## Dia 22 - If Santa, Then Christmas
 
@@ -496,7 +508,9 @@ if (isset($_GET['cmd'])) {
 ?>
 ```
 
-Após o upload, abra a URL indicada pela aplicação com `?cmd=cat%20%2Fhome%2Fuser%2Fflag.txt`. Apague o arquivo pelo painel ou pelo acesso obtido e confira que a URL não o executa mais. **Respostas:** `log...` (nome do campo); `big...` (email); `sal...` (senha); `Wat...` (estação); `THM{SHE...}` (flag).
+Após o upload, abra a URL indicada pela aplicação com `?cmd=cat%20%2Fhome%2Fuser%2Fflag.txt`. Apague o arquivo pelo painel ou pelo acesso obtido e confira que a URL não o executa mais.
+
+**Respostas:** `log...` (nome do campo); `big...` (email); `sal...` (senha); `Wat...` (estação); `THM{SHE...}` (flag).
 
 ## Dia 24 - Elf Stalk
 
