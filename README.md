@@ -1,4 +1,4 @@
-# Guias de resolução TryHackMe em português
+# Guias de resolução (write-ups) TryHackMe em português do Brasil
 
 Guias passo a passo de salas e desafios públicos do TryHackMe, organizados por sala.
 
