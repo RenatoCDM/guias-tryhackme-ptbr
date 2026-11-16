@@ -1,4 +1,4 @@
-# Guias de resolução (write-ups) TryHackMe em português do Brasil
+# Guias de resolução (write-ups) para o TryHackMe em português do Brasil
 
 Guias passo a passo de salas e desafios públicos do TryHackMe, organizados por sala.
 
@@ -8,6 +8,6 @@ Guias passo a passo de salas e desafios públicos do TryHackMe, organizados por 
 
 ## Como usar
 
-Abra a pasta da sala e leia o `README.md`. Substitua `<IP>` pelo endereço da sua própria máquina de laboratório. Os guias contêm respostas e, portanto, **spoilers**. Execute os procedimentos apenas em ambientes autorizados.
+Abra a pasta da sala e leia o `README.md`. Substitua `<IP>` pelo endereço as máquinas do seu laboratório. Os guias contêm respostas e, portanto, **spoilers**. Execute os procedimentos apenas em ambientes autorizados.
 
 Este repositório não é afiliado ao TryHackMe.
