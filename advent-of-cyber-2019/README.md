@@ -12,11 +12,11 @@ ping -c 1 "$IP"
 nmap -Pn -sT -sV "$IP"
 ```
 
-As tarefas 1–5 da sala são introdução e conexão. Marque-as conforme as instruções da página. Os desafios começam na tarefa 6, correspondente ao dia 1. Baixe os arquivos de cada tarefa pelo botão **Download Task Files** quando ele aparecer.
+As tarefas 1-5 da sala são introdução e conexão. Marque-as conforme as instruções da página. Os desafios começam na tarefa 6, correspondente ao dia 1. Baixe os arquivos de cada tarefa pelo botão **Download Task Files** quando ele aparecer.
 
 Os downloads podem ter um sufixo numérico no nome. Antes de executar comandos que usam nomes curtos, renomeie o arquivo correspondente; por exemplo, `mv 'Evil Elf_'*.pcap evil-elf.pcap` e `mv tosend_*.zip tosend.zip`.
 
-## Dia 1 — Inventory Management
+## Dia 1 - Inventory Management
 
 1. Inicie a máquina e abra `http://<IP>:3000` no navegador.
 2. Registre uma conta de teste e entre. Abra as ferramentas do navegador, procure **Cookies** e anote o cookie `authid`.
@@ -29,7 +29,7 @@ printf %s 'mcinventoryv4er9ll1!ss' | base64 -w0
 
 **Respostas:** `authid`; `v4er9ll1!ss`; `firewall`.
 
-## Dia 2 — Arctic Forum
+## Dia 2 - Arctic Forum
 
 1. Inicie a máquina e examine `http://<IP>:3000`.
 2. Enumere diretórios. A rota administrativa encontrada é `/sysadmin` (a resposta aceita pode aparecer como `/SysAdmin`).
@@ -44,7 +44,7 @@ curl -s "http://$IP:3000/sysadmin" | grep -i -E 'github|arctic|design'
 
 **Respostas:** `/SysAdmin`; `defaultpass`; `Eggnog`.
 
-## Dia 3 — Evil Elf
+## Dia 3 - Evil Elf
 
 O arquivo da tarefa é uma captura PCAP. Os resultados vêm do tráfego, sem Lab Machine.
 
@@ -64,7 +64,7 @@ john --show buddy.hash
 
 **Respostas:** `63.32.89.195`; `ps4`; `rainbow`.
 
-## Dia 4 — Training
+## Dia 4 - Training
 
 Entre por SSH com `mcsysadmin` e a senha fornecida na própria tarefa, `bestelf1234`. A maior parte das respostas está na home. Para a última pergunta, há uma cópia de `/etc/shadow` em `/var/shadow.bak`.
 
@@ -82,7 +82,7 @@ grep '^mcsysadmin:' /var/shadow.bak
 
 **Respostas, na ordem:** `8`; `recipes`; `file6`; `10.0.0.05`; `3`; `fa67ee594358d83becdd2cb6c466b25320fd2835`; `$6$jbosYsU/$qOYToX/hnKGjT0EscuUIiIqF8GHgokHdy/Rg/DaB.RgkrbeBXPdzpHdMLI6cQJLdFlS4gkBMzilDBYcQvu2ro/`.
 
-## Dia 5 — Ho-Ho-Hosint
+## Dia 5 - Ho-Ho-Hosint
 
 1. Baixe a imagem fornecida pela tarefa e veja seus metadados. O campo `Creator` revela `JLolax1`.
 2. Pesquise esse identificador nas redes sociais. O perfil de Lola contém data de nascimento, ocupação e modelo de telefone.
@@ -95,7 +95,7 @@ exiftool thegrinch.jpg | grep -i -E 'creator|artist|author'
 
 **Respostas:** `December 29, 1900`; `Santa's Helper`; `iPhone X`; `23/10/2014`; `Ada Lovelace`. Perfis e páginas externas podem ter mudado desde 2019; nesse caso, consulte as capturas arquivadas.
 
-## Dia 6 — Data Elf-iltration
+## Dia 6 - Data Elf-iltration
 
 1. Baixe o PCAP e filtre consultas DNS. Há um nome com caracteres hexadecimais; decodifique-os para obter o dado exfiltrado.
 2. No Wireshark, use **File → Export Objects → HTTP** para salvar `christmaslists.zip` e a imagem `TryHackMe.jpg` observados no tráfego.
@@ -114,7 +114,7 @@ cat <ARQUIVO_EXTRAIDO_PELO_STEGHIDE>
 
 **Respostas:** `Candy Cane Serial Number 8491`; `PenTester`; `RFC527`.
 
-## Dia 7 — Skilling Up
+## Dia 7 - Skilling Up
 
 Faça um scan de portas abaixo de 1000 e identificação de versão/sistema. O serviço HTTP da porta 999 expõe a resposta final.
 
@@ -127,7 +127,7 @@ Conte as linhas `open` de portas TCP do scan; o Nmap identifica Linux e OpenSSH 
 
 **Respostas:** `3`; `Linux`; `7.4`; `interesting.file`.
 
-## Dia 8 — SUID Shenanigans
+## Dia 8 - SUID Shenanigans
 
 1. Procure SSH em todas as portas: neste alvo está em `65534`.
 2. Entre como `holly` usando a senha que a tarefa fornece, `tuD@4vt0G*TU`.
@@ -147,7 +147,7 @@ find / -user root -perm -4000 -type f 2>/dev/null | grep system-control
 
 **Respostas:** `65534`; `THM{d3f0708bdd9accda7f937d013eaf2cd8}`; `THM{8c8211826239d849fa8d6df03749c3a2}`.
 
-## Dia 9 — Requests
+## Dia 9 - Requests
 
 O serviço da porta 3000 devolve JSON com `value` e `next`. Comece por `/`, acrescente `value` à resposta e siga a rota indicada por `next`. Pare antes de acrescentar `end`.
 
@@ -174,7 +174,7 @@ print(''.join(parts))
 
 **Resposta:** `sCrIPtKiDd`.
 
-## Dia 10 — Metasploit-a-ho-ho-ho
+## Dia 10 - Metasploit-a-ho-ho-ho
 
 O scan encontra o Apache Struts acessível em `/showcase.action`. Use o módulo `struts2_content_type_ognl` do Metasploit, configure o IP da máquina alvo e o IP da sua interface VPN (`tun0`), execute e abra um shell. Procure `flag1`, depois `ssh-creds.txt`. A credencial encontrada permite SSH como `santa`. Na home dele, leia as linhas pedidas das listas.
 
@@ -202,7 +202,7 @@ sed -n '52p' nice_list.txt
 
 **Respostas:** `THM{3ad96bb13ec963a5ca4cb99302b37e12}`; `rudolphrednosedreindeer`; `Melisa Vanhoose`; `Lindsey Gaffney`.
 
-## Dia 11 — Elf Applications
+## Dia 11 - Elf Applications
 
 O alvo oferece NFS, FTP e MySQL. As três perguntas exigem serviços diferentes.
 
@@ -229,7 +229,7 @@ SELECT * FROM USERS;
 
 **Respostas:** `securepassword123`; `file.txt`; `bestpassword`.
 
-## Dia 12 — Elfcryption
+## Dia 12 - Elfcryption
 
 Baixe `tosend.zip` e extraia `note1.txt.gpg`, `note2_encrypted.txt` e `private.key`. Calcule o MD5 **antes** de decifrar a primeira nota. O GPG solicita a frase `25daysofchristmas`; a chave privada da segunda nota usa `hello`.
 
@@ -246,7 +246,7 @@ cat note2.txt
 
 Se a versão do OpenSSL não aceitar esse formato de chave, tente `openssl rsautl -decrypt` com os mesmos arquivos. **Respostas:** `24cf615e2a4f42718f2ff36b35614f8f`; `santa's grotto`; `THM{ed9ccb6802c5d0f905ea747a310bba23}`.
 
-## Dia 13 — Accumulate
+## Dia 13 - Accumulate
 
 Este dia combina enumeração Web, credenciais expostas e escalada de privilégio no Windows.
 
@@ -274,7 +274,7 @@ type <CAMINHO_ENCONTRADO_PARA_ROOT.TXT>
 
 **Respostas:** `/retro`; `THM{HACK_PLAYER_ONE}`; `THM{COIN_OPERATED_EXPLOITATION}`. A terceira pergunta é opcional na plataforma.
 
-## Dia 14 — Unknown Storage
+## Dia 14 - Unknown Storage
 
 O enunciado fornece o nome `advent-bucket-one`. O bucket permite listagem sem autenticação. Leia o objeto encontrado, também sem credenciais AWS.
 
@@ -286,7 +286,7 @@ cat employee_names.txt
 
 Também é possível abrir `https://advent-bucket-one.s3.amazonaws.com/employee_names.txt` no navegador. **Respostas:** `employee_names.txt`; `mcchef`.
 
-## Dia 15 — LFI
+## Dia 15 - LFI
 
 1. Abra a página Web e leia as notas de Charlie; uma delas menciona a viagem a `Hawaii`.
 2. Inspecione as requisições da página. O serviço carrega arquivos pela rota `/get-file/`; um caminho absoluto codificado permite obter `/etc/shadow`.
@@ -304,7 +304,7 @@ find /home/charlie -name flag1.txt -type f -exec cat {} \;
 
 **Respostas:** `Hawaii`; `password1`; `THM{4ea2adf842713ad3ce0c1f05ef12256d}`.
 
-## Dia 16 — File Confusion
+## Dia 16 - File Confusion
 
 O ZIP desta tarefa contém ZIPs aninhados. O script abaixo percorre cada arquivo interno sem contar os próprios ZIPs. Ele também grava os arquivos finais em um diretório para inspeção.
 
@@ -347,7 +347,7 @@ grep -Ril 'password' extraidos/
 
 **Respostas:** `50`; `3`; `dL6w.txt`.
 
-## Dia 17 — Hydra-ha-ha-haa
+## Dia 17 - Hydra-ha-ha-haa
 
 1. O scan identifica Web/80 e SSH/22. Veja o HTML do formulário: os campos são `username` e `password`, enviados a `/login`.
 2. Use Hydra contra o formulário, com a expressão de falha `incorrect`. Entre na página como `molly` e leia a primeira flag.
@@ -365,7 +365,7 @@ find /home/molly -iname '*flag*' -type f -exec cat {} \;
 
 **Senhas:** Web `sunshine`, SSH `butterfly`. **Flags:** `THM{2673a7dd116de68e85c48ec0b1f2612e}` e `THM{c8eeb0468febbadea859baeb33b2541b}`.
 
-## Dia 18 — ELF JS
+## Dia 18 - ELF JS
 
 O fórum da porta 3000 armazena notas sem neutralizar HTML. O bot administrador visita as notas, criando um cenário de XSS persistente.
 
@@ -383,7 +383,7 @@ O fórum da porta 3000 armazena notas sem neutralizar HTML. O bot administrador 
 
 Se o formulário codificar quebras de linha, escreva a carga em uma única linha. **Resposta:** `2564799a4e6689972f6d9e1c7b406f87065cbf65`.
 
-## Dia 19 — Commands
+## Dia 19 - Commands
 
 O enunciado chama atenção para `/api/cmd`. Nessa rota, o segmento depois da última barra é interpretado como comando do sistema. Teste `ls`, procure o arquivo e codifique o espaço e as barras ao ler seu conteúdo.
 
@@ -395,7 +395,7 @@ curl "http://$IP:3000/api/cmd/cat%20%2Fhome%2Fbestadmin%2Fuser.txt"
 
 **Resposta:** `5W7WkjxBWwhe3RNsWJ3Q`.
 
-## Dia 20 — Cronjob Privilege Escalation
+## Dia 20 - Cronjob Privilege Escalation
 
 1. O scan de todas as portas identifica SSH em `4567`.
 2. Descubra a senha de `sam` com Hydra e entre por SSH. Leia `flag1.txt`.
@@ -424,7 +424,7 @@ rm /home/scripts/clean_up.sh.backup /home/scripts/flag2.txt
 
 **Respostas:** `4567`; `THM{dec4389bc09669650f3479334532aeab}`; `THM{b27d33705f97ba2e1f444ec2da5f5f61}`.
 
-## Dia 21 — Reverse Elf-ineering
+## Dia 21 - Reverse Elf-ineering
 
 Baixe o ZIP do dia e extraia o binário `challenge1`. Use `radare2` para analisar `main`. Os locais `local_ch`, `local_8h` e `local_4h` são variáveis na pilha, relativas a `rbp`. Acompanhe os `mov` e a multiplicação `imull` na ordem em que aparecem.
 
@@ -443,7 +443,7 @@ pdf @ main
 
 Se quiser conferir dinamicamente, abra com `r2 -d challenge1`, coloque um breakpoint antes da instrução de interesse com `db <ENDEREÇO>`, avance com `dc`, leia os registradores com `dr` e a pilha com `px @ rbp-0xc` ou `px @ rbp-0x4`. **Respostas:** `1`; `6`; `6`.
 
-## Dia 22 — If Santa, Then Christmas
+## Dia 22 - If Santa, Then Christmas
 
 Extraia o ZIP e analise `if2`. Em `main`, `local_8h` começa em 8 e `local_4h` em 2. O teste condicional não toma o desvio para `8 <= 2`; a execução incrementa `local_8h` em 1 e deixa `local_4h` inalterado.
 
@@ -462,7 +462,7 @@ pdf @ main
 
 **Respostas:** `local_8h = 9`; `local_4h = 2`.
 
-## Dia 23 — LapLANd (SQL Injection)
+## Dia 23 - LapLANd (SQL Injection)
 
 1. Inspecione o HTML do formulário de login. O nome do campo vulnerável é `log_email`.
 2. Salve uma requisição POST do formulário para `/register.php` em `login-request.txt`, com os campos `log_email`, `log_password` e `login_button`.
@@ -497,7 +497,7 @@ if (isset($_GET['cmd'])) {
 
 Após o upload, abra a URL indicada pela aplicação com `?cmd=cat%20%2Fhome%2Fuser%2Fflag.txt`. Apague o arquivo pelo painel ou pelo acesso obtido e confira que a URL não o executa mais. **Respostas:** `log_email`; `bigman@shefesh.com`; `saltnpepper`; `Waterloo`; `THM{SHELLS_IN_MY_EGGNOG}`.
 
-## Dia 24 — Elf Stalk
+## Dia 24 - Elf Stalk
 
 O scan mostra Elasticsearch em `9200`, Kibana em `5601` e um log acessível em `8000`.
 
@@ -519,6 +519,6 @@ curl -s "http://$IP:8000/kibana-log.txt" | tail -50
 
 **Respostas:** `9Qs58Ol3AXkMWLxiEyUyyf`; `someELKfun`.
 
-## Dia 25 — Challenge-less
+## Dia 25 - Challenge-less
 
 Não há flag nesse dia. Leia a tarefa final e clique em **Check** para encerrá-la.
