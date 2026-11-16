@@ -1,6 +1,6 @@
 # Guias de resolução TryHackMe em português
 
-Guias de estudo de salas e desafios públicos do TryHackMe, organizados por sala. Os textos descrevem os métodos usados no laboratório e indicam quando uma resposta não pôde ser reproduzida integralmente.
+Guias passo a passo de salas e desafios públicos do TryHackMe, organizados por sala.
 
 ## Guias
 
