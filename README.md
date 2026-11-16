@@ -4,7 +4,7 @@ Guias de estudo de salas e desafios públicos do TryHackMe, organizados por sala
 
 ## Guias
 
-- [Advent of Cyber 1 (2019)](./advent-of-cyber-2019/README.md) — 25 dias de fundamentos de segurança, análise de arquivos, aplicações Web, Linux e redes.
+- [Advent of Cyber 1 (2019)](./advent-of-cyber-2019/README.md) - 25 dias de fundamentos de segurança, análise de arquivos, aplicações Web, Linux e redes.
 
 ## Como usar
 
