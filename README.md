@@ -8,6 +8,6 @@ Este repositório ajuda pessoas no Brasil a resolver as tarefas das salas do Try
 
 ## Como usar
 
-Abra a pasta da sala e leia o `README.md`. Substitua `<IP>` pelo endereço da máquina do seu laboratório. Os guias contêm respostas e, portanto, **spoilers**. Execute os procedimentos apenas em ambientes autorizados.
+Abra a pasta da sala e leia o `README.md`. Substitua `<IP>` pelo endereço da máquina do seu laboratório. Os guias mostram os procedimentos e, quando útil, o formato esperado das respostas, sem revelar os valores. Execute os procedimentos apenas em ambientes autorizados.
 
 Este repositório não é afiliado ao TryHackMe.
