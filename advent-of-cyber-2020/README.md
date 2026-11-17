@@ -434,6 +434,7 @@ curl -s "http://$IP:<PORTA_ALTA>/assets/js/upload.js"
 O endpoint de upload espera `{"name":"<ARQUIVO>.png.php","file":"data:image/png;base64,<DADOS>"}`. O script [enviar_png_php.py](scripts/enviar_png_php.py) gera uma imagem PNG válida, acrescenta um pequeno script PHP após o bloco `IEND`, envia o arquivo e testa sua execução com `id`. Use uma conta descartável da própria aplicação se o endpoint exigir login. Instale `Pillow` e `requests` na Kali, se necessário.
 
 ```bash
+cd advent-of-cyber-2020
 sudo apt install python3-pil python3-requests
 python3 scripts/enviar_png_php.py "http://$IP:<PORTA_ALTA>" \
   --username '<USUARIO_LAB>' --password '<SENHA_LAB>'
