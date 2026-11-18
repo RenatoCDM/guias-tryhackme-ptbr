@@ -6,6 +6,7 @@ Este repositório ajuda pessoas no Brasil a resolver as tarefas das salas do Try
 
 - [Advent of Cyber 1 (2019)](./advent-of-cyber-2019/README.md) - 25 dias de fundamentos de segurança, análise de arquivos, aplicações Web, Linux e redes.
 - [Advent of Cyber 2 (2020)](./advent-of-cyber-2020/README.md) - 24 dias de exploração Web, redes, análise de arquivos, Windows e Linux.
+- [Advent of Cyber 3 (2021)](./advent-of-cyber-2021/README.md) - 25 dias de aplicações Web, redes, nuvem, análise forense e pós-exploração.
 
 ## Como usar
 
