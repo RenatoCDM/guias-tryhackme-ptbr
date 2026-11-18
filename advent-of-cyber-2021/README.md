@@ -332,7 +332,7 @@ aws s3 cp s3://<BUCKET_DA_TAREFA>/wp-backup.zip /tmp/aoc3-wp-backup.zip \
 unzip -l /tmp/aoc3-wp-backup.zip
 ```
 
-**Estado atual:** em novembro de 2026, o endereço S3 indicado pelo HTML retornou `NoSuchBucket`. Portanto, as etapas após a listagem dependem de uma cópia histórica dos objetos ou da restauração do bucket pelo TryHackMe. A resolução registrada desta sala usou registros históricos públicos para os campos restantes; não houve acesso a uma conta AWS real.
+**Estado atual:** em novembro de 2026, o endereço S3 indicado pelo HTML retornou `NoSuchBucket`. Portanto, as etapas após a listagem dependem de uma cópia dos objetos ou da restauração do bucket pelo TryHackMe. Não use uma conta AWS real para tentar recriar o ambiente da tarefa.
 
 **Respostas:** `THM{...}` (mensagem); `wp-...` (backup); `AKI...` (access key ID); `############` (account ID); `...` (usuário); `...` (tag EC2); `...` (segredo); **No answer needed**.
 
@@ -473,9 +473,10 @@ O comando de decodificação deve usar o tipo de chave e o texto exatamente como
 
 ## Dia 24 - Learning From The Grinch
 
-1. Na VM Windows, abra PowerShell como administrador e entre na pasta `C:\Users\Administrator\Desktop\mimikatz\x64`. `Get-LocalUser` ajuda a identificar a conta adicional antes da análise de memória.
-2. Execute a cópia de Mimikatz **fornecida dentro da VM isolada**. Use `privilege::debug` e `sekurlsa::logonpasswords`; procure o bloco do usuário adicional e copie seu hash NTLM.
-3. Na máquina Linux, teste o hash com John e `rockyou`. Confirme a senha recuperada usando `john --show` ou recalculando o NTLM localmente.
+1. Inicie a VM Windows da tarefa e entre com as credenciais exibidas no próprio enunciado. Abra o PowerShell como administrador. `Get-LocalUser` lista as contas locais; anote a conta ativa além de `Administrator`.
+2. A ferramenta já está em `C:\Users\Administrator\Desktop\mimikatz\x64`. Execute-a **somente na VM isolada**. No prompt `mimikatz #`, use `privilege::debug` e confirme a mensagem `Privilege '20' OK`.
+3. Execute `sekurlsa::logonpasswords`. Procure a sessão da conta identificada no passo 1. No bloco `msv`, copie os 32 caracteres hexadecimais da linha `* NTLM`. Não confunda esse valor com a linha `SHA1` nem com o hash de `Administrator`.
+4. Na máquina Linux, coloque apenas o hash NTLM em um arquivo e teste-o com John e a lista `rockyou`. O resultado aparece no terminal e pode ser conferido com `john --show`. Preencha as três perguntas da sala na ordem: usuário, hash e senha.
 
 ```powershell
 Get-LocalUser | Select-Object Name,Enabled
@@ -498,14 +499,12 @@ zcat /usr/share/wordlists/rockyou.txt.gz |
 john --show --format=NT /tmp/aoc3-hash.txt --pot=/tmp/aoc3-john.pot
 ```
 
-**Limite da resolução registrada:** a conta foi confirmada na VM, mas a execução de Mimikatz não ocorreu naquela sessão. O hash foi conferido em um guia público e a senha foi efetivamente testada no Kali local. O procedimento acima descreve como obter o hash diretamente na VM; não apresenta a etapa como executada.
-
 **Respostas:** `emi...` (usuário); `8af...` (NTLM); `123...` (senha).
 
 ## Dia 25 - Feedback
 
 O formulário de feedback indicado na tarefa revela a flag após o envio. Responda às perguntas de opinião com suas próprias impressões e copie a flag para a sala. As duas perguntas informativas restantes são **No answer needed**: clique em **Check** em cada uma.
 
-Como o evento ocorreu em 2021, o formulário pode não estar mais ativo. Na resolução registrada, a flag foi conferida em um guia público; nenhuma opinião foi enviada em nome de outra pessoa.
+Como o evento ocorreu em 2021, o formulário pode não estar mais ativo. Se não revelar a flag, essa etapa depende da disponibilidade do formulário pelo TryHackMe.
 
 **Resposta:** `thm{...}` (flag do formulário); **No answer needed** nas outras duas questões.
