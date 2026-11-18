@@ -338,20 +338,31 @@ unzip -l /tmp/aoc3-wp-backup.zip
 
 ## Dia 18 - Playing With Containers
 
-1. Leia os comandos Docker conceituais na tarefa: listar imagens e exportar uma imagem para arquivo. Se não quiser iniciar contêineres, use `skopeo` para copiar a imagem pública para um arquivo OCI e examine as camadas como tar.
+1. Leia os comandos Docker conceituais na tarefa: listar imagens e exportar uma imagem para arquivo. Para analisar a imagem pública sem iniciar contêineres, use `skopeo` para criar um arquivo no formato `docker-archive`.
 2. Confira `manifest.json` e procure o arquivo de configuração do Consul dentro da camada que contém `/root/envconsul/config.hcl`. O token pedido aparece nesse arquivo.
 3. Apague o arquivo de imagem temporário depois de anotar a resposta.
 
 ```bash
 docker images
 docker save <IMAGEM> -o /tmp/aoc3-image.tar
+```
+
+Se a imagem não estiver carregada no Docker local, obtenha o arquivo diretamente do registro público:
+
+```bash
 skopeo inspect docker://public.ecr.aws/h0w1j9u3/grinch-aoc:latest
 skopeo copy docker://public.ecr.aws/h0w1j9u3/grinch-aoc:latest \
   docker-archive:/tmp/aoc3-image.tar
 tar -tf /tmp/aoc3-image.tar | head
 ```
 
-Para extrair um arquivo de camadas tar sem executar a imagem, use Python `tarfile` e procure entradas cujo nome termina em `root/envconsul/config.hcl`.
+O script [ler_arquivo_em_imagem_docker.py](scripts/ler_arquivo_em_imagem_docker.py) percorre os `layer.tar` do arquivo Docker sem iniciar o contêiner nem extrair a imagem no disco. Ele lê o caminho indicado e mostra seu conteúdo:
+
+```bash
+python3 scripts/ler_arquivo_em_imagem_docker.py /tmp/aoc3-image.tar \
+  --path root/envconsul/config.hcl
+rm /tmp/aoc3-image.tar
+```
 
 **Respostas:** `doc...` (comando de listagem); `doc...` (comando de exportação); `man...` (manifesto); `709...` (token).
 
