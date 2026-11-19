@@ -142,7 +142,7 @@ numero = int('<VALOR_HEXADECIMAL_DO_BOOKMARK>', 16)
 print(numero)
 ```
 
-Para a ponte do Yeti, faça uma busca inicial no Cetus com **Value vazio** e tipo `i32`. Receba um impacto, refine com **LT** e Value ainda vazio, repetindo até isolar o endereço de HP. Altere o valor para uma quantidade alta, como `9999`, e atravesse a ponte. Leia a flag no diálogo final do próprio jogo. Na nossa execução, os projéteis reiniciaram o jogo antes de estabilizar o endereço de HP; o procedimento da ponte fica como rota técnica a conferir no laboratório.
+Para a ponte do Yeti, faça uma busca inicial no Cetus com **Value vazio**, comparação **EQ** e tipo `i32`. Isso guarda os valores atuais para uma busca diferencial. Entre na ponte até perder parte da barra de vida e recue para uma área sem projéteis. No Cetus, mantenha **Value vazio**, selecione **LT** e pesquise novamente: restarão endereços cujo valor diminuiu. Receba outro impacto, recue e repita **LT** para reduzir a lista. Observe os valores candidatos enquanto a barra de vida muda e marque o endereço correspondente ao HP. Edite esse endereço para uma quantidade alta, como `9999`, e atravesse a ponte. Leia a flag no diálogo final do jogo.
 
 **Respostas:** `THM{5_...}` (guarda); `THM{yet...}` (Yeti).
 
@@ -269,9 +269,7 @@ Na regra de software, filtre `reg.exe` e os termos `reg`, `query` e `/v`; na tar
 
 ## Dia 19 - Captura de sinais digitais
 
-Abra o arquivo de captura `santa` no Logic 2 da VM **SaleaeLogicAnalyser**. Identifique o canal serial, adicione um analisador **Async Serial** e compare os baud rates indicados na tarefa até o texto decodificado ficar legível. Copie a flag do fluxo serial decodificado, não dos valores brutos do gráfico.
-
-Na nossa sessão, duas instâncias da VM não entregaram o desktop e a captura não pôde ser aberta. Por isso, este é o procedimento indicado pela própria atividade, ainda sem validação prática nossa.
+Abra o arquivo de captura `santa` no Logic 2 da VM **SaleaeLogicAnalyser**. Amplie a primeira região com transições regulares, identifique o canal que carrega os dados e adicione um analisador **Async Serial** a esse canal. Ajuste o baud rate conforme a largura dos bits e a lista de velocidades da tarefa. Verifique também polaridade, quantidade de bits, paridade e stop bit para que a saída vire texto legível. Selecione o trecho seguinte da captura e ajuste novamente o baud rate: a velocidade pode mudar entre mensagens. Leia o valor pedido no texto decodificado e copie a flag do fluxo serial, não dos valores brutos do gráfico.
 
 **Respostas:** `####` (baud rate do segundo trecho); `THM{...}` (flag serial).
 
@@ -314,7 +312,7 @@ Se o Kali em WSL não receber conexões da VPN, encaminhe temporariamente a port
 
 ## Dia 22 - Redução de superfície de ataque
 
-No exercício interativo, associe cada ameaça ao controle que a reduz: portas expostas com fechamento de portas, macros maliciosas com bloqueio de macros, dados expostos com remoção dos dados, phishing com proteção de e-mail, força bruta com senha forte e execução por USB com AppLocker. Confira as seis associações na tela antes de enviar e depois leia a flag gerada. Marque também a pergunta sem resposta. Na nossa sessão, o arrasto no Edge não foi registrado pelo jogo; essa interação visual precisa ser feita manualmente se ocorrer a mesma falha.
+No exercício interativo, arraste cada ameaça até o controle que a reduz: portas expostas com fechamento de portas, macros maliciosas com bloqueio de macros, dados expostos com remoção dos dados, phishing com proteção de e-mail, força bruta com senha forte e execução por USB com AppLocker. Confira se o contador mostra seis associações corretas, envie a atividade e leia a flag exibida. Marque também a pergunta sem resposta.
 
 **Resposta:** `THM{4T...}` (flag).
 
@@ -328,7 +326,7 @@ Anote cada pista junto com o objeto que a fornece. Não é necessário adivinhar
 
 ## Dia 24 - Pesquisa e encerramento
 
-Responda a pesquisa com suas próprias opiniões. As perguntas pessoais não têm resposta universal. Ao terminar, a plataforma deve apresentar a flag. Marque todos os campos **No answer needed** da tarefa de feedback. Na tarefa final, leia a história, responda à pergunta de encerramento e marque eventuais campos de leitura. Não enviamos o formulário pessoal na nossa sessão; esse fluxo não foi validado diretamente.
+Abra o formulário da pesquisa, responda às perguntas pessoais com suas próprias opiniões e avance por todas as páginas. Essas perguntas não têm resposta universal. Envie o formulário e copie a flag apresentada na tela final. Volte à sala para inserir essa flag e marque todos os campos **No answer needed** da tarefa de feedback. Na tarefa final, leia a história, responda à pergunta de encerramento e marque eventuais campos de leitura.
 
 **Respostas:** `THM{AoC...}` (flag da pesquisa); `Ye...` (encerramento).
 
