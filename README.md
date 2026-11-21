@@ -32,3 +32,15 @@ nmap -Pn -sT -p22,80,443 "$IP"
 No nosso ambiente, usamos Kali Linux em WSL2 com a VPN conectada no Windows e confirmamos o acesso aos alvos dos exercícios que exigiam rede interna. Essa rota depende da configuração de rede do Windows e do WSL; se não funcionar, use uma VM Linux com OpenVPN diretamente. O [guia oficial de conexão](https://help.tryhackme.com/en/articles/6611809-getting-started-with-openvpn) e as [orientações sobre máquina própria](https://help.tryhackme.com/en/articles/8991559-q-a-common-questions-after-connecting-to-the-vpn) ajudam na configuração. A VPN substitui a AttackBox, mas não libera salas que exigem assinatura.
 
 Este repositório não é afiliado ao TryHackMe.
+
+## Comunidade e contribuições
+
+Sugestões e correções são bem-vindas por meio das [issues](https://github.com/RenatoCDM/guias-tryhackme-ptbr/issues). Leia [Como contribuir](./CONTRIBUTING.md) e o [Código de conduta](./CODE_OF_CONDUCT.md) antes de participar. Somente o proprietário publica alterações na branch `main`; abrir uma issue ou um pull request não concede acesso de escrita ao repositório.
+
+Para relatar uma falha em um script, consulte a [Política de segurança](./SECURITY.md). Barreiras de leitura podem ser relatadas conforme a [Declaração de acessibilidade](./ACCESSIBILITY.md).
+
+## Licenças
+
+Os textos originais dos guias e da documentação estão sob [Creative Commons Attribution 4.0 International](./LICENSE) (CC BY 4.0): é permitida a reutilização e adaptação com crédito e indicação de mudanças. Os scripts originais nas pastas `scripts/` estão sob a [licença MIT](./LICENSE-SCRIPTS).
+
+Essas licenças não abrangem marcas, logotipos, capturas de tela, arquivos ou outros materiais de terceiros, incluindo conteúdos do TryHackMe. Cada titular conserva os direitos sobre seus próprios materiais.
