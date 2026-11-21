@@ -1,4 +1,4 @@
-# Guias de resolução (write-ups) para o TryHackMe em português do Brasil
+# Guias de resolução do TryHackMe em português do Brasil
 
 Este repositório ajuda pessoas no Brasil a resolver as tarefas das salas do TryHackMe em português do Brasil. Comandos, mensagens, avisos e saídas dos sistemas permanecem em inglês, como aparecem nos laboratórios.
 
@@ -35,7 +35,7 @@ Este repositório não é afiliado ao TryHackMe.
 
 ## Comunidade e contribuições
 
-Sugestões e correções são bem-vindas por meio das [issues](https://github.com/RenatoCDM/guias-tryhackme-ptbr/issues). Leia [Como contribuir](./CONTRIBUTING.md) e o [Código de conduta](./CODE_OF_CONDUCT.md) antes de participar. Somente o proprietário publica alterações na branch `main`; abrir uma issue ou um pull request não concede acesso de escrita ao repositório.
+Sugestões e correções são bem-vindas por meio dos [relatos](https://github.com/RenatoCDM/guias-tryhackme-ptbr/issues). Leia [Como contribuir](./CONTRIBUTING.md) e o [Código de conduta](./CODE_OF_CONDUCT.md) antes de participar. Somente o proprietário publica alterações na ramificação `main`; abrir um relato ou uma proposta de alteração não concede acesso de escrita ao repositório.
 
 Para relatar uma falha em um script, consulte a [Política de segurança](./SECURITY.md). Barreiras de leitura podem ser relatadas conforme a [Declaração de acessibilidade](./ACCESSIBILITY.md).
 

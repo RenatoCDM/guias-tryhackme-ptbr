@@ -13,4 +13,4 @@ Explique os passos executados para conferir o conteúdo ou testar o script em um
 - [ ] As etapas são reproduzíveis e a linha `Resposta:` segue o padrão dos guias.
 - [ ] Tenho direito de compartilhar o material que proponho.
 
-O mantenedor pode aplicar a sugestão em um commit próprio. Este pull request não concede acesso de escrita à branch `main`.
+O mantenedor pode aplicar a sugestão em um registro próprio. Esta proposta de alteração não concede acesso de escrita à ramificação `main`.
