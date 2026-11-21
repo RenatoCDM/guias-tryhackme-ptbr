@@ -1,5 +1,7 @@
 # Guias de resolução do TryHackMe em português do Brasil
 
+![Coruja cibernética sobre uma nuvem de dados](./assets/cyber-owl-social-preview.jpg)
+
 Este repositório ajuda pessoas no Brasil a resolver as tarefas das salas do TryHackMe em português do Brasil. Comandos, mensagens, avisos e saídas dos sistemas permanecem em inglês, como aparecem nos laboratórios.
 
 ## Guias
