@@ -35,11 +35,11 @@ sqlite3 hopflix.db '.tables'
 sqlite3 hopflix.db 'SELECT email,length(password_hash) FROM users;'
 ```
 
-O campo `password_hash` reúne vários hashes SHA-1 de 40 caracteres: cada trecho representa um caractere da senha, calculado com várias iterações. O código da aplicação sugere 5.000 iterações, mas a base obtida no laboratório corresponde a 1.000. Para recuperar os caracteres por comparação local, use o [script que criamos para esta sala](./scripts/recuperar_senha_hopflix.py):
+O campo `password_hash` reúne vários hashes SHA-1 de 40 caracteres: cada trecho representa um caractere da senha, calculado com várias iterações. O código da aplicação sugere 5.000 iterações, mas a base obtida no laboratório corresponde a 1.000. Para recuperar os caracteres por comparação local, use o [script que criamos para esta sala](scripts/recuperar_senha_hopflix.py):
 
 ```bash
 git clone https://github.com/RenatoCDM/guias-tryhackme-ptbr.git
-python3 guias-tryhackme-ptbr/advent-of-cyber-2025-sidequest/scripts/recuperar_senha_hopflix.py hopflix.db
+python3 guias-tryhackme-ptbr/series/advent-of-cyber/advent-of-cyber-2025-sidequest/scripts/recuperar_senha_hopflix.py hopflix.db
 ```
 
 O comando imprime o e-mail e a senha recuperada. Autentique-se na API e mantenha o cookie da sessão:

@@ -14,7 +14,7 @@ nmap -Pn -sT --open -p 22,80,139,443,445,1883,5900,8080 "$IP"
 
 Em **No answer needed**, conclua a leitura ou atividade e clique em **Check**. Nas linhas **Respostas**, `THM{...}` e `flag{...}` são máscaras de flags; `#` representa um algarismo e `...` oculta o restante. Não envie as máscaras à plataforma.
 
-Para callbacks TCP ou RTSP com Kali em WSL2 e VPN no Windows, o [encaminhador TCP](./scripts/vpn-wsl-relay.ps1) aceita IP da VPN, IP do WSL e porta como parâmetros. Use uma VM Linux conectada diretamente à VPN se o roteamento local já funcionar.
+Para callbacks TCP ou RTSP com Kali em WSL2 e VPN no Windows, o [encaminhador TCP](scripts/vpn-wsl-relay.ps1) aceita IP da VPN, IP do WSL e porta como parâmetros. Use uma VM Linux conectada diretamente à VPN se o roteamento local já funcionar.
 
 ## Dia 1 - Frameworks
 

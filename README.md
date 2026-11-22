@@ -1,12 +1,12 @@
 # Guias de resolução do TryHackMe em português do Brasil
 
-![Coruja cibernética sobre uma nuvem de dados](./assets/cyber-owl-social-preview.jpg)
+![Coruja cibernética sobre uma nuvem de dados](assets/cyber-owl-social-preview.jpg)
 
 Este repositório ajuda pessoas no Brasil a resolver as tarefas das salas do TryHackMe em português do Brasil. Comandos, mensagens, avisos e saídas dos sistemas permanecem em inglês, como aparecem nos laboratórios.
 
 ## Guias
 
-- [Série Advent of Cyber](./series/advent-of-cyber/README.md) - guias dos desafios de dezembro do TryHackMe, de 2019 a 2025, incluindo as Side Quests.
+- [Série Advent of Cyber](series/advent-of-cyber/README.md) - guias dos desafios de dezembro do TryHackMe, de 2019 a 2025, incluindo as Side Quests.
 
 ## Como usar
 
@@ -33,12 +33,12 @@ Este repositório não é afiliado ao TryHackMe.
 
 ## Comunidade e contribuições
 
-Sugestões e correções são bem-vindas por meio dos [relatos](https://github.com/RenatoCDM/guias-tryhackme-ptbr/issues). Leia [Como contribuir](./CONTRIBUTING.md) e o [Código de conduta](./CODE_OF_CONDUCT.md) antes de participar. Somente o proprietário publica alterações na ramificação `main`; abrir um relato ou uma proposta de alteração não concede acesso de escrita ao repositório.
+Sugestões e correções são bem-vindas por meio dos [relatos](https://github.com/RenatoCDM/guias-tryhackme-ptbr/issues). Leia [Como contribuir](CONTRIBUTING.md) e o [Código de conduta](CODE_OF_CONDUCT.md) antes de participar. Somente o proprietário publica alterações na ramificação `main`; abrir um relato ou uma proposta de alteração não concede acesso de escrita ao repositório.
 
-Para relatar uma falha em um script, consulte a [Política de segurança](./SECURITY.md). Barreiras de leitura podem ser relatadas conforme a [Declaração de acessibilidade](./ACCESSIBILITY.md).
+Para relatar uma falha em um script, consulte a [Política de segurança](SECURITY.md). Barreiras de leitura podem ser relatadas conforme a [Declaração de acessibilidade](ACCESSIBILITY.md).
 
 ## Licenças
 
-Os textos originais dos guias e da documentação estão sob [Creative Commons Attribution 4.0 International](./LICENSE) (CC BY 4.0): é permitida a reutilização e adaptação com crédito e indicação de mudanças. Os scripts originais nas pastas `scripts/` estão sob a [licença MIT](./LICENSE-SCRIPTS).
+Os textos originais dos guias e da documentação estão sob [Creative Commons Attribution 4.0 International](LICENSE) (CC BY 4.0): é permitida a reutilização e adaptação com crédito e indicação de mudanças. Os scripts originais nas pastas `scripts/` estão sob a [licença MIT](LICENSE-SCRIPTS).
 
 Essas licenças não abrangem marcas, logotipos, capturas de tela, arquivos ou outros materiais de terceiros, incluindo conteúdos do TryHackMe. Cada titular conserva os direitos sobre seus próprios materiais.

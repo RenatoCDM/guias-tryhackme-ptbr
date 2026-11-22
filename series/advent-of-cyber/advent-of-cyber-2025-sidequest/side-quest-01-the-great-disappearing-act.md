@@ -85,11 +85,11 @@ curl -s "http://$IP:13401/v1/streams/$TICKET/manifest.m3u8" \
   -H "Authorization: Bearer $TOKEN" | head -n 25
 ```
 
-A primeira requisição recebe um ticket efetivo de guarda; a segunda deve mostrar `effective_tier` igual a `admin`. O manifesto restrito contém segmentos `.ts` e metadados de diagnóstico. Baixe o começo do vídeo com o [script de captura HLS criado para esta missão](./scripts/capturar_hls.py) e extraia quadros com `ffmpeg`. Para executar o script, clone o repositório e entre na pasta desta Side Quest:
+A primeira requisição recebe um ticket efetivo de guarda; a segunda deve mostrar `effective_tier` igual a `admin`. O manifesto restrito contém segmentos `.ts` e metadados de diagnóstico. Baixe o começo do vídeo com o [script de captura HLS criado para esta missão](scripts/capturar_hls.py) e extraia quadros com `ffmpeg`. Para executar o script, clone o repositório e entre na pasta desta Side Quest:
 
 ```bash
 git clone https://github.com/RenatoCDM/guias-tryhackme-ptbr.git
-cd guias-tryhackme-ptbr/advent-of-cyber-2025-sidequest
+cd guias-tryhackme-ptbr/series/advent-of-cyber/advent-of-cyber-2025-sidequest
 # Se necessário: sudo apt install python3-requests ffmpeg
 python3 scripts/capturar_hls.py "$IP" "$TOKEN" "$TICKET" camera-admin.ts
 ffmpeg -hide_banner -loglevel error -i camera-admin.ts \

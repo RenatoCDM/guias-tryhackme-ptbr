@@ -4,7 +4,7 @@ Este guia acompanha a [sala Advent of Cyber 2024](https://tryhackme.com/room/adv
 
 ## Preparação
 
-Conecte sua máquina Linux à VPN, inicie a **Lab Machine** de cada tarefa e substitua `<IP>` pelo endereço exibido na página. Para VMs com interface gráfica, use a visualização da sala. A AttackBox só é necessária quando o exercício exige que a máquina alvo estabeleça uma conexão de volta e sua rede local não recebe esse tráfego. As [instruções gerais para usar uma máquina própria](../README.md#máquina-local-conectada-à-vpn) estão na página principal do repositório.
+Conecte sua máquina Linux à VPN, inicie a **Lab Machine** de cada tarefa e substitua `<IP>` pelo endereço exibido na página. Para VMs com interface gráfica, use a visualização da sala. A AttackBox só é necessária quando o exercício exige que a máquina alvo estabeleça uma conexão de volta e sua rede local não recebe esse tráfego. As [instruções gerais para usar uma máquina própria](../../../README.md#máquina-local-conectada-à-vpn) estão na página principal do repositório.
 
 ```bash
 export IP=10.x.x.x
@@ -45,7 +45,7 @@ O texto decodificado é a última resposta. Verifique que o comando pertence ao 
 
 ## Dia 3 - ELK, upload de arquivo e web shell
 
-Abra o ELK em `http://<IP>:5601` e selecione o índice `frostypines-resorts`. Delimite o intervalo UTC de 03/10/2024 entre 10:30 e 11:00. Busque por requisições a arquivos `.php` na pasta de imagens e compare os eventos de upload com os acessos posteriores. Anote o caminho HTTP completo e o IP que chamou o shell. O [script de triagem dos logs](./scripts/filtrar_logs_dia3.py) automatiza essa seleção, mas a interface do ELK também basta.
+Abra o ELK em `http://<IP>:5601` e selecione o índice `frostypines-resorts`. Delimite o intervalo UTC de 03/10/2024 entre 10:30 e 11:00. Busque por requisições a arquivos `.php` na pasta de imagens e compare os eventos de upload com os acessos posteriores. Anote o caminho HTTP completo e o IP que chamou o shell. O [script de triagem dos logs](scripts/filtrar_logs_dia3.py) automatiza essa seleção, mas a interface do ELK também basta.
 
 Para a parte ofensiva, abra o site da VM e entre na área administrativa com as credenciais de teste indicadas na dica da tarefa. Em **Add Room**, observe no navegador que o formulário envia o arquivo de imagem para `add_room_controller.php`. Envie um PHP pequeno com extensão `.php` e um parâmetro de comando; confirme o caminho do upload nos logs e faça um teste inofensivo antes de procurar a flag:
 
@@ -87,7 +87,7 @@ Get-Content '<CAMINHO_DO_ARTEFATO_GERADO>'
 
 ## Dia 5 - XXE na lista de desejos
 
-No site WishVille, abra um produto e acompanhe a requisição para `/wishlist.php` ao adicioná-lo à lista. O corpo é XML e contém `product_id`. Primeiro envie um pedido comum para estabelecer a resposta esperada. Depois declare uma entidade externa que lê `/etc/hosts` e substitua o `product_id` por `&payload;`. O [script de enumeração XXE](./scripts/testar_xxe_dia5.py) faz esses dois testes e percorre os arquivos `wish_N.txt` da pasta indicada pela sala.
+No site WishVille, abra um produto e acompanhe a requisição para `/wishlist.php` ao adicioná-lo à lista. O corpo é XML e contém `product_id`. Primeiro envie um pedido comum para estabelecer a resposta esperada. Depois declare uma entidade externa que lê `/etc/hosts` e substitua o `product_id` por `&payload;`. O [script de enumeração XXE](scripts/testar_xxe_dia5.py) faz esses dois testes e percorre os arquivos `wish_N.txt` da pasta indicada pela sala.
 
 ```xml
 <?xml version="1.0"?>
@@ -258,7 +258,7 @@ O `aircrack-ng` apresenta a senha recuperada. As outras perguntas pedem os ident
 
 ## Dia 12 - Condição de corrida no banco
 
-Abra o banco de teste da VM e entre com a conta apresentada na sala. Faça **uma** transferência pequena e observe no navegador os campos POST `account_number` e `amount` enviados a `/transfer`. Confira o saldo no `/dashboard` antes de automatizar. O [script de concorrência](./scripts/testar_corrida_dia12.py) autentica uma sessão, sincroniza várias requisições simultâneas e imprime o saldo resultante.
+Abra o banco de teste da VM e entre com a conta apresentada na sala. Faça **uma** transferência pequena e observe no navegador os campos POST `account_number` e `amount` enviados a `/transfer`. Confira o saldo no `/dashboard` antes de automatizar. O [script de concorrência](scripts/testar_corrida_dia12.py) autentica uma sessão, sincroniza várias requisições simultâneas e imprime o saldo resultante.
 
 ```bash
 python3 -m pip install requests
@@ -273,7 +273,7 @@ Compare o saldo antes e depois. O defeito está na verificação do saldo feita 
 
 ## Dia 13 - Eventos Socket.IO no rastreador
 
-No **Wareville Car Tracker**, use a interface para rastrear Glitch. Em **Ferramentas do desenvolvedor > Rede > WS**, observe as mensagens Socket.IO: o evento `track` envia `userId`, e o evento `send_msg` envia `sender` e `txt`. Compare a resposta para Glitch com o comportamento de outros IDs. O [script Socket.IO](./scripts/consultar_rastreador_dia13.py) aceita o endereço da VM e o ID a investigar:
+No **Wareville Car Tracker**, use a interface para rastrear Glitch. Em **Ferramentas do desenvolvedor > Rede > WS**, observe as mensagens Socket.IO: o evento `track` envia `userId`, e o evento `send_msg` envia `sender` e `txt`. Compare a resposta para Glitch com o comportamento de outros IDs. O [script Socket.IO](scripts/consultar_rastreador_dia13.py) aceita o endereço da VM e o ID a investigar:
 
 ```bash
 python3 -m pip install 'python-socketio[client]'
@@ -314,7 +314,7 @@ Nas requisições POST, identifique as credenciais de teste das duas contas. Ace
 
 ## Dia 15 - Política de grupo e eventos do domínio
 
-A VM Windows fornece uma conta de laboratório com acesso administrativo. No PowerShell da VM, leia o histórico de comandos e enumere GPOs antes de inspecionar os logs. O histórico mostra a consulta de usuários; a lista de GPOs destaca a política de persistência. Para encontrar o último logon da conta suspeita e o comando que definiu sua senha, copie o [script de consulta de eventos](./scripts/consultar_eventos_dia15.ps1) para a VM e execute-o nela:
+A VM Windows fornece uma conta de laboratório com acesso administrativo. No PowerShell da VM, leia o histórico de comandos e enumere GPOs antes de inspecionar os logs. O histórico mostra a consulta de usuários; a lista de GPOs destaca a política de persistência. Para encontrar o último logon da conta suspeita e o comando que definiu sua senha, copie o [script de consulta de eventos](scripts/consultar_eventos_dia15.ps1) para a VM e execute-o nela:
 
 ```powershell
 Get-Content "$env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt"
