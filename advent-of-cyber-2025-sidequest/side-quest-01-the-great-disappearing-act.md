@@ -48,6 +48,8 @@ curl -s -b cookies.txt "http://$IP:8080/cgi-bin/key_flag.sh?door=hopper"
 
 Anote a flag completa para o terminal final e para o primeiro campo do TryHackMe.
 
+Resposta: `THM{h0p...}`
+
 ## 3. Falha de parâmetros na API de vídeo
 
 O mapa indica câmeras ativas. O portal `http://<IP>:13400/` aceita a mesma conta do guarda. Sua interface lista `cam-admin` como câmera restrita da saída da ala psiquiátrica. O JavaScript do portal mostra que ele pede um ticket em `/v1/streams/request` e usa o ticket para abrir um manifesto HLS.
@@ -127,6 +129,8 @@ cat /home/svc_vidops/user_part2.txt
 
 Envie a segunda flag completa ao TryHackMe.
 
+Resposta: `THM{Y0u...}`
+
 ## 5. Acesso de manutenção e código do portão
 
 No shell de `svc_vidops`, procure executáveis com bit SUID. `diag_shell` inicia uma sessão com o UID efetivo de `dockermgr`, mas ainda conserva o grupo original. A conta `dockermgr` pertence ao grupo `docker`, então uma nova sessão SSH permite usar esse grupo:
@@ -165,8 +169,8 @@ docker exec asylum_gate_control \
 
 Use o código numérico encontrado no **Asylum Exit Key** do mapa. A resposta do serviço fornece a terceira flag. Se for necessário conferir os seis dígitos da ala psiquiátrica, examine também `psych_check.sh` no host a partir do contêiner; não force o teclado às cegas.
 
+Resposta: `THM{p0p...}`
+
 ## 6. Fuga e confirmação
 
 No mapa, informe as três flags no **Exit Facility**. O laboratório confirma a fuga e mostra um convite para outra missão opcional. Na página da sala, preencha os três campos de resposta com as flags obtidas, esperando alguns segundos entre as submissões. Confirme que o progresso chegou a **100%**.
-
-**Respostas:** `THM{h0p...}` (cela); `THM{Y0u...}` (flag composta da ala psiquiátrica e do console); `THM{p0p...}` (portão SCADA).
