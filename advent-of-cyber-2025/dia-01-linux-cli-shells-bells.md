@@ -30,6 +30,10 @@ cat .guide.txt
 
 O comando que lista o diretório responde à primeira pergunta. Leia a flag na saída de `.guide.txt` para responder à segunda. O próprio arquivo orienta a investigar os logs e os arquivos relacionados a `egg`.
 
+Resposta 1: `l...`
+
+Resposta 2: `THM{...}`
+
 ## Logs e script Eggstrike
 
 Continue na mesma sessão, mantendo a ordem dos exercícios:
@@ -44,6 +48,10 @@ cat eggstrike.sh
 ```
 
 `grep` é a resposta sobre a filtragem dos logins com falha. O caminho encontrado por `find` aponta para `eggstrike.sh`; leia o script, inclusive seus comentários, para localizar a segunda flag. Observe também o que ele faz com `wishlist.txt` e `eastmas.txt`: o script copia e organiza os pedidos, remove o arquivo original e coloca a lista falsa no lugar.
+
+Resposta 3: `gr...`
+
+Resposta 4: `THM{...}`
 
 ## Permissões, root e histórico
 
@@ -62,6 +70,10 @@ cat .bash_history
 ```
 
 O primeiro `cat /etc/shadow` deve falhar por falta de permissão. O comando de troca para `root` responde à quinta pergunta. Procure a terceira flag no histórico exibido por `cat .bash_history`, sem executar os comandos suspeitos que encontrar ali. As tarefas finais de leitura complementar não exigem texto como resposta: abra a nota solicitada e marque **Check**.
+
+Resposta 5: `sud...`
+
+Resposta 6: `THM{...}`
 
 ## Desafio opcional: chave da Side Quest 1
 
@@ -89,18 +101,8 @@ gpg --batch --pinentry-mode loopback \
 Na pasta `/home/socmas/2025`, substitua `wishlist.txt` **pelas dez linhas exatas da nota**, uma por linha. O arquivo permite escrita à conta usada nesta etapa. Confira a grafia antes de continuar:
 
 ```bash
-cat > /home/socmas/2025/wishlist.txt <<'EOF'
-Hardware security keys (YubiKey or similar)
-Commercial password manager subscriptions (team seats)
-Endpoint detection & response (EDR) licenses
-Secure remote access appliances (jump boxes)
-Cloud workload scanning credits (container/image scanning)
-Threat intelligence feed subscription
-Secure code review / SAST tool access
-Dedicated secure test lab VM pool
-Incident response runbook templates and playbooks
-Electronic safe drive with encrypted backups
-EOF
+nano /home/socmas/2025/wishlist.txt
+# Insira as dez linhas reveladas pela nota, salve e saia do editor.
 wc -l /home/socmas/2025/wishlist.txt
 ```
 
@@ -124,5 +126,3 @@ gpg --batch --pinentry-mode loopback \
 tar -tzf /tmp/sidequest1.tar.gz
 tar -xzf /tmp/sidequest1.tar.gz -C /tmp
 ```
-
-**Respostas:** `l...` (comando de listagem); `THM{...}` (guia escondido); `gr...` (filtro de logs); `THM{...}` (script Eggstrike); `sud...` (troca para root); `THM{...}` (histórico do root); sem resposta; sem resposta.
