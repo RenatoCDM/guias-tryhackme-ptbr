@@ -6,11 +6,11 @@ Este repositório ajuda pessoas no Brasil a resolver as tarefas das salas do Try
 
 ## Guias
 
-- [Série Advent of Cyber](./series/advent-of-cyber/README.md) - guias anuais dos desafios de dezembro do TryHackMe, de 2019 a 2024.
+- [Série Advent of Cyber](./series/advent-of-cyber/README.md) - guias dos desafios de dezembro do TryHackMe, de 2019 a 2025, incluindo as Side Quests.
 
 ## Como usar
 
-Abra a página da série, escolha o ano e leia o `README.md` da sala. Substitua `<IP>` pelo endereço da máquina do seu laboratório. Os guias mostram os procedimentos e máscaras de resposta com dicas entre parênteses, sem revelar os valores completos. Execute os procedimentos apenas em ambientes autorizados.
+Abra a página da série, escolha o ano e, na edição de 2025, selecione o dia ou a Side Quest. Substitua `<IP>` pelo endereço da máquina do seu laboratório. Os guias mostram os procedimentos e máscaras de resposta com dicas entre parênteses, sem revelar os valores completos. Execute os procedimentos apenas em ambientes autorizados.
 
 ## Máquina local conectada à VPN
 

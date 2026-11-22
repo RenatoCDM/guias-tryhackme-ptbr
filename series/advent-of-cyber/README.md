@@ -1,6 +1,6 @@
 # Série Advent of Cyber
 
-Guias em português do Brasil para as salas anuais **Advent of Cyber** do TryHackMe. Cada guia fica em uma pasta própria; escolha o ano para abrir os procedimentos de todos os dias daquela edição.
+Guias em português do Brasil para as salas anuais **Advent of Cyber** do TryHackMe. Escolha a edição; em 2025, cada sala possui um guia próprio dentro do índice dos dias ou das Side Quests.
 
 | Edição | Guia | Assuntos principais |
 | --- | --- | --- |
@@ -12,5 +12,7 @@ Guias em português do Brasil para as salas anuais **Advent of Cyber** do TryHac
 | Advent of Cyber 2023 Side Quest | [Abrir guia da Side Quest de 2023](../../advent-of-cyber-2023-sidequest/README.md) | PCAP, ARM, Vim, contêineres e Flask |
 | Advent of Cyber 2024 | [Abrir guia de 2024](../../advent-of-cyber-2024/README.md) | OPSEC, nuvem, análise de malware, Web, redes e MQTT |
 | Advent of Cyber 2024 Side Quest | [Abrir guia da Side Quest de 2024](../../advent-of-cyber-2024-sidequest/README.md) | PCAP, ROS, heap, Active Directory e aplicações Web |
+| Advent of Cyber 2025 | [Escolher um dia de 2025](../../advent-of-cyber-2025/README.md) | Linux CLI e próximos dias |
+| Advent of Cyber 2025 Side Quest | [Escolher uma Side Quest de 2025](../../advent-of-cyber-2025-sidequest/README.md) | OSINT, API de vídeo e acesso ao sistema do asilo |
 
 [Voltar à página principal](../../README.md)
