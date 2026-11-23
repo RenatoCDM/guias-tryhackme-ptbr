@@ -1,6 +1,6 @@
 # Dia 1 - Linux CLI: Shells Bells
 
-Este guia acompanha a sala [Linux CLI - Shells Bells](https://tryhackme.com/room/linuxcli-aoc2025-o1fpqkvxti) do Advent of Cyber 2025. Os comandos devem ser executados **na máquina alvo da sala**, na ordem em que aparecem. Se você usa uma máquina Linux própria conectada à VPN, entre na Lab Machine por SSH e execute os comandos nessa sessão. Executá-los somente no Kali local não produz os arquivos nem os eventos observados pela sala.
+Este guia acompanha a sala [Linux CLI - Shells Bells](https://tryhackme.com/room/linuxcli-aoc2025-o1fpqkvxti) do Advent of Cyber 2025. Os comandos devem ser executados **na máquina alvo da sala**, na ordem em que aparecem. Você pode acessá-la pela AttackBox do TryHackMe ou por uma máquina Linux própria conectada à VPN. A máquina própria é recomendada se quiser preservar histórico, arquivos e ferramentas entre sessões; veja as [opções de conexão](../../../README.md#máquina-local-conectada-à-vpn). Em ambos os casos, entre na Lab Machine por SSH e execute os comandos nessa sessão. Executá-los somente na máquina de ataque não produz os arquivos nem os eventos observados pela sala.
 
 ## Preparação
 

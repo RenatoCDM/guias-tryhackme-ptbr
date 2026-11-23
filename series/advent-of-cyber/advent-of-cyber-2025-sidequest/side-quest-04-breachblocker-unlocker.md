@@ -1,6 +1,6 @@
 # Side Quest 4 - BreachBlocker Unlocker
 
-Este guia acompanha a sala [BreachBlocker Unlocker](https://tryhackme.com/room/sq4-aoc2025-32LoZ4zePK). Inicie a Lab Machine e use uma máquina Linux conectada à VPN do TryHackMe. Os procedimentos abaixo foram executados no laboratório; substitua o IP pelo endereço da sua instância.
+Este guia acompanha a sala [BreachBlocker Unlocker](https://tryhackme.com/room/sq4-aoc2025-32LoZ4zePK). Inicie a Lab Machine e use uma máquina Linux própria conectada à VPN ou a AttackBox do TryHackMe. Recomendamos a máquina própria para conservar histórico, arquivos e ferramentas entre sessões; veja as [opções de conexão](../../../README.md#máquina-local-conectada-à-vpn). Os procedimentos abaixo foram executados no laboratório; substitua o IP pelo endereço da sua instância.
 
 ```bash
 export IP=10.x.x.x

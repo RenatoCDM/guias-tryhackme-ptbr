@@ -2,6 +2,8 @@
 
 Este guia acompanha as quatro salas avançadas da [Side Quest de 2023](https://tryhackme.com/room/adventofcyber23sidequest). A sala principal já fornece os links diretos para cada desafio. As respostas aparecem apenas como máscaras; obtenha os valores nos arquivos e laboratórios da sua própria sessão.
 
+Para as tarefas que exigem uma máquina de ataque, use uma máquina Linux própria conectada à VPN ou a AttackBox do TryHackMe. Recomendamos a máquina própria para conservar histórico, arquivos e ferramentas entre sessões; veja as [opções de conexão](../../../README.md#máquina-local-conectada-à-vpn). Para tarefas com arquivos baixados ou VM gráfica do laboratório, use o ambiente indicado pela própria sala.
+
 ## SQ1 - The Return of the Yeti
 
 Abra [The Return of the Yeti](https://tryhackme.com/room/adv3nt0fdbopsjcap) e baixe `VanSpy.pcapng.zip` em **Download Task Files**. Extraia a captura no Kali e identifique o SSID nos quadros de beacon. O campo `wlan.ssid` pode sair em hexadecimal, então converta-o para texto antes de responder.

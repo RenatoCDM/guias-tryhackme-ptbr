@@ -4,7 +4,7 @@ Este guia acompanha os desafios práticos da [sala Advent of Cyber 2023](https:/
 
 ## Preparação
 
-Conecte seu Kali Linux à VPN do TryHackMe. Em cada dia, inicie a **Lab Machine** indicada na tarefa e aguarde o endereço aparecer no painel **Active machines information**. Quando houver um IP, confira a rota antes de usar os serviços do exercício:
+Use uma máquina Linux própria conectada à VPN ou a AttackBox do TryHackMe. A máquina própria é recomendada para preservar histórico, arquivos e ferramentas entre sessões; veja as [opções de máquina de ataque](../../../README.md#máquina-local-conectada-à-vpn). Em cada dia, inicie a **Lab Machine** indicada na tarefa e aguarde o endereço aparecer no painel **Active machines information**. Quando houver um IP, confira a rota antes de usar os serviços do exercício:
 
 ```bash
 export IP=10.x.x.x  # substitua pelo IP da Lab Machine

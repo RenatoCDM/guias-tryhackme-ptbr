@@ -1,10 +1,10 @@
 # Guia de resolução: Advent of Cyber 2024
 
-Este guia acompanha a [sala Advent of Cyber 2024](https://tryhackme.com/room/adventofcyber2024). Ele mostra como investigar cada laboratório e chegar às respostas, sem publicar flags ou valores completos. Use apenas as máquinas da sala e sua própria conexão à VPN do TryHackMe.
+Este guia acompanha a [sala Advent of Cyber 2024](https://tryhackme.com/room/adventofcyber2024). Ele mostra como investigar cada laboratório e chegar às respostas, sem publicar flags ou valores completos. Use apenas as máquinas autorizadas da sala e uma conexão à rede do TryHackMe.
 
 ## Preparação
 
-Conecte sua máquina Linux à VPN, inicie a **Lab Machine** de cada tarefa e substitua `<IP>` pelo endereço exibido na página. Para VMs com interface gráfica, use a visualização da sala. A AttackBox só é necessária quando o exercício exige que a máquina alvo estabeleça uma conexão de volta e sua rede local não recebe esse tráfego. As [instruções gerais para usar uma máquina própria](../../../README.md#máquina-local-conectada-à-vpn) estão na página principal do repositório.
+Use uma máquina Linux própria conectada à VPN ou a AttackBox do TryHackMe, inicie a **Lab Machine** de cada tarefa e substitua `<IP>` pelo endereço exibido na página. A máquina própria é recomendada para preservar histórico, arquivos e ferramentas entre sessões; veja as [opções de máquina de ataque](../../../README.md#máquina-local-conectada-à-vpn). Para VMs com interface gráfica, use a visualização da sala. Se o alvo precisar abrir uma conexão de volta e não alcançar sua máquina local, use a AttackBox para receber essa conexão.
 
 ```bash
 export IP=10.x.x.x

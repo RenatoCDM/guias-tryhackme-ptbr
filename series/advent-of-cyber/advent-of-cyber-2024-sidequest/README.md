@@ -2,6 +2,8 @@
 
 Este guia acompanha os cinco desafios da [Side Quest de 2024](https://tryhackme.com/room/adventofcyber24sidequest). As respostas ficam mascaradas. Obtenha os valores nos laboratórios da sua sessão e use a senha de cada cartão encontrado na sala principal do [Advent of Cyber 2024](https://tryhackme.com/room/adventofcyber2024).
 
+Para as tarefas que exigem uma máquina de ataque, use uma máquina Linux própria conectada à VPN ou a AttackBox do TryHackMe. Recomendamos a máquina própria para conservar histórico, arquivos e ferramentas entre sessões; veja as [opções de conexão](../../../README.md#máquina-local-conectada-à-vpn). As VMs gráficas e os arquivos fornecidos pela sala podem ser usados diretamente quando a tarefa assim orientar.
+
 ## T1 - Operation Tiny Frostbite
 
 ### Obtenha o cartão T1

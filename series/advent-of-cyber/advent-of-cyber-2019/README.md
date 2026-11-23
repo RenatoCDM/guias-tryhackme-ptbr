@@ -4,7 +4,7 @@
 
 ## Preparação
 
-Use uma máquina Linux com as ferramentas `nmap`, `curl`, `python3`, `tshark`, `john`, `hydra`, `exiftool`, `unzip`, `fcrackzip`, `steghide`, `awscli`, `mysql`, `sqlmap` e `radare2`. Conecte-a à VPN do TryHackMe e inicie a **Lab Machine** indicada em cada tarefa. A etapa NFS do dia 11 exige uma máquina Linux com suporte a montagem NFS.
+Use uma máquina Linux própria conectada à VPN ou a AttackBox do TryHackMe, com `nmap`, `curl`, `python3`, `tshark`, `john`, `hydra`, `exiftool`, `unzip`, `fcrackzip`, `steghide`, `awscli`, `mysql`, `sqlmap` e `radare2`. A máquina própria é recomendada para preservar histórico, arquivos e ferramentas entre sessões; veja as [opções de máquina de ataque](../../../README.md#máquina-local-conectada-à-vpn). Inicie a **Lab Machine** indicada em cada tarefa. A etapa NFS do dia 11 exige uma máquina Linux com suporte a montagem NFS.
 
 ```bash
 export IP=<IP_DA_MAQUINA>

@@ -4,7 +4,7 @@
 
 ## Preparação
 
-Conecte seu Kali ou outra distribuição Linux à VPN do TryHackMe. Inicie a **Lab Machine** do dia e use o IP exibido pela sala. A AttackBox só é necessária quando uma atividade depende de sua interface. Algumas VMs gráficas têm acesso próprio pelo painel da tarefa.
+Use uma máquina Linux própria conectada à VPN ou a AttackBox do TryHackMe. A máquina própria é recomendada para preservar histórico, arquivos e ferramentas entre sessões; veja as [opções de máquina de ataque](../../../README.md#máquina-local-conectada-à-vpn). Inicie a **Lab Machine** do dia e use o IP exibido pela sala. Algumas VMs gráficas têm acesso próprio pelo painel da tarefa e dispensam uma máquina de ataque separada.
 
 ```bash
 export IP=<IP_DA_LAB_MACHINE>

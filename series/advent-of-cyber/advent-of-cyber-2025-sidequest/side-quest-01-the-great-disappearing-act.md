@@ -1,6 +1,6 @@
 # Side Quest 1 - The Great Disappearing Act
 
-Este guia acompanha a sala [The Great Disappearing Act](https://tryhackme.com/room/sq1-aoc2025-FzPnrt2SAu), missão opcional do Advent of Cyber 2025. O objetivo é libertar Hopper de HopSec Asylum, obter três flags e verificar as três no terminal de saída. A chave de entrada fica na imagem descoberta pelo [desafio opcional do dia 1](../advent-of-cyber-2025/dia-01-linux-cli-shells-bells.md#desafio-opcional-chave-da-side-quest-1). O guia usa uma máquina Linux própria conectada à VPN do TryHackMe.
+Este guia acompanha a sala [The Great Disappearing Act](https://tryhackme.com/room/sq1-aoc2025-FzPnrt2SAu), missão opcional do Advent of Cyber 2025. O objetivo é libertar Hopper de HopSec Asylum, obter três flags e verificar as três no terminal de saída. A chave de entrada fica na imagem descoberta pelo [desafio opcional do dia 1](../advent-of-cyber-2025/dia-01-linux-cli-shells-bells.md#desafio-opcional-chave-da-side-quest-1). Use uma máquina Linux própria conectada à VPN ou a AttackBox do TryHackMe. Recomendamos a máquina própria para conservar histórico, arquivos e ferramentas entre sessões; veja as [opções de conexão](../../../README.md#máquina-local-conectada-à-vpn).
 
 ## 1. Reconhecimento da máquina alvo
 

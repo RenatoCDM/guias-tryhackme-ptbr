@@ -4,7 +4,7 @@
 
 ## Preparação
 
-Conecte sua máquina Linux à VPN do TryHackMe. Tenha `nmap`, `curl`, `python3`, `ffuf` ou `gobuster`, `tshark`, `smbclient`, `enum4linux`, `sshpass`, `exiftool`, `radare2` e `gdb` à mão. Para as VMs Windows, use RDP e as credenciais informadas na própria tarefa. Algumas máquinas levam vários minutos para liberar as portas, e o IP pode demorar cerca de um minuto para aparecer.
+Use uma máquina Linux própria conectada à VPN ou a AttackBox do TryHackMe. A máquina própria é recomendada para preservar histórico, arquivos e ferramentas entre sessões; veja as [opções de máquina de ataque](../../../README.md#máquina-local-conectada-à-vpn). Tenha `nmap`, `curl`, `python3`, `ffuf` ou `gobuster`, `tshark`, `smbclient`, `enum4linux`, `sshpass`, `exiftool`, `radare2` e `gdb` à mão. Para as VMs Windows, use RDP e as credenciais informadas na própria tarefa. Algumas máquinas levam vários minutos para liberar as portas, e o IP pode demorar cerca de um minuto para aparecer.
 
 ```bash
 export IP=<IP_DA_LAB_MACHINE>

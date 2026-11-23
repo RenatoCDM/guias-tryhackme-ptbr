@@ -1,6 +1,6 @@
 # Side Quest 2 - Scheme Catcher
 
-Este guia acompanha a sala [Scheme Catcher](https://tryhackme.com/room/sq2-aoc2025-JxiOKUSD9R), do Advent of Cyber 2025. A missão combina descoberta de uma chave, engenharia reversa e exploração de memória. Use uma máquina Linux conectada à VPN do TryHackMe. Inicie a Lab Machine e substitua o IP abaixo pelo da sua instância.
+Este guia acompanha a sala [Scheme Catcher](https://tryhackme.com/room/sq2-aoc2025-JxiOKUSD9R), do Advent of Cyber 2025. A missão combina descoberta de uma chave, engenharia reversa e exploração de memória. Use uma máquina Linux própria conectada à VPN ou a AttackBox do TryHackMe. Recomendamos a máquina própria para conservar histórico, arquivos e ferramentas entre sessões; veja as [opções de conexão](../../../README.md#máquina-local-conectada-à-vpn). Inicie a Lab Machine e substitua o IP abaixo pelo da sua instância.
 
 ```bash
 export IP=10.x.x.x

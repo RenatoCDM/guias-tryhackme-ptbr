@@ -1,6 +1,6 @@
 # Side Quest 3 - Carrotbane of My Existence
 
-Este guia acompanha a sala [Carrotbane of My Existence](https://tryhackme.com/room/sq3-aoc2025-bk3vvbcgiT). Use uma máquina Linux conectada à VPN do TryHackMe e inicie somente a Lab Machine da sala. Substitua o IP de exemplo pelo endereço mostrado na página.
+Este guia acompanha a sala [Carrotbane of My Existence](https://tryhackme.com/room/sq3-aoc2025-bk3vvbcgiT). Use uma máquina Linux própria conectada à VPN ou a AttackBox do TryHackMe. Recomendamos a máquina própria para conservar histórico, arquivos e ferramentas entre sessões; veja as [opções de conexão](../../../README.md#máquina-local-conectada-à-vpn). Inicie a Lab Machine da sala e substitua o IP de exemplo pelo endereço mostrado na página.
 
 ```bash
 export IP=10.x.x.x

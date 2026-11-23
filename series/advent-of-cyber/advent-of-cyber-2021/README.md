@@ -4,7 +4,7 @@
 
 ## Preparação
 
-Conecte a máquina Linux à VPN do TryHackMe e inicie apenas a máquina alvo do dia. `nmap`, `curl`, `ffuf` ou `dirb`, `tshark`, `john`, `skopeo` e Python cobrem a maior parte das tarefas. Algumas usam a VM gráfica do próprio TryHackMe. As tarefas 1 a 5 apresentam o evento; o dia 1 começa na tarefa 6.
+Use uma máquina Linux própria conectada à VPN ou a AttackBox do TryHackMe e inicie a máquina alvo quando a tarefa pedir. A máquina própria é recomendada para preservar histórico, arquivos e ferramentas entre sessões; veja as [opções de máquina de ataque](../../../README.md#máquina-local-conectada-à-vpn). `nmap`, `curl`, `ffuf` ou `dirb`, `tshark`, `john`, `skopeo` e Python cobrem a maior parte das tarefas. Algumas usam a VM gráfica do próprio TryHackMe. As tarefas 1 a 5 apresentam o evento; o dia 1 começa na tarefa 6.
 
 ```bash
 export IP=<IP_DA_TAREFA>
