@@ -18,6 +18,8 @@ Esta página lista as salas do [Advent of Cyber 2025](https://tryhackme.com/adve
 | 12 | [Phishing - Phishmas Greetings](https://tryhackme.com/room/spottingphishing-aoc2025-r2g4f6s8l0) | Classificação de e-mails por sinais de phishing e spam. As instruções da própria sala são autossuficientes para encontrar as respostas. |
 | 13 | [YARA Rules - YARA mean one!](https://tryhackme.com/room/yara-aoc2025-q9w1e3y5u7) | Regras YARA para localizar texto e regex em imagens. As instruções da própria sala são autossuficientes para encontrar as respostas. |
 | 14 | [Containers - DoorDasher's Demise](https://tryhackme.com/room/container-security-aoc2025-z0x3v6n9m2) | Exposição do socket do Docker e recuperação de um serviço em contêiner. As instruções da própria sala são autossuficientes para encontrar as respostas. |
+| 15 | [Web Attack Forensics - Drone Alone](https://tryhackme.com/room/webattackforensics-aoc2025-b4t7c1d5f8) | Correlação de logs do Apache e Sysmon no Splunk. As instruções da própria sala são autossuficientes para encontrar as respostas. |
+| 16 | [Forensics - Registry Furensics](https://tryhackme.com/room/registry-forensics-aoc2025-h6k9j2l5p8) | Investigação de hives do Registro do Windows com Registry Explorer. As instruções da própria sala são autossuficientes para encontrar as respostas. |
 
 As missões opcionais ficam no [índice das Side Quests de 2025](../advent-of-cyber-2025-sidequest/README.md).
 
