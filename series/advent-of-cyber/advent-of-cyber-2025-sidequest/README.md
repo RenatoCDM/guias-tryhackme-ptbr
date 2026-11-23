@@ -4,7 +4,7 @@ As Side Quests são salas adicionais da série Advent of Cyber 2025. Cada sala c
 
 | Missão | Sala | Assuntos principais |
 | --- | --- | --- |
-| Side Quest 0 | [Hopper's Origin](https://tryhackme.com/room/ho-aoc2025-yboMoPbnEX) | Rede interna, Windows, Active Directory e movimento lateral |
+| Side Quest 0 | [Hopper's Origin](side-quest-00-hoppers-origin.md) | Rede interna, Windows, Active Directory e movimento lateral |
 | Side Quest 1 | [The Great Disappearing Act](side-quest-01-the-great-disappearing-act.md) | OSINT, API de vídeo e acesso ao sistema do asilo |
 | Side Quest 2 | [Scheme Catcher](side-quest-02-scheme-catcher.md) | Engenharia reversa, falha de heap, FSOP e contêineres |
 | Side Quest 3 | [Carrotbane of My Existence](side-quest-03-carrotbane-of-my-existence.md) | DNS, injeção de prompt, SMTP e API de modelos |
