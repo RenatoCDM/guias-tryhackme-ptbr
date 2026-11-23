@@ -20,6 +20,7 @@ Esta página lista as salas do [Advent of Cyber 2025](https://tryhackme.com/adve
 | 14 | [Containers - DoorDasher's Demise](https://tryhackme.com/room/container-security-aoc2025-z0x3v6n9m2) | Exposição do socket do Docker e recuperação de um serviço em contêiner. As instruções da própria sala são autossuficientes para encontrar as respostas. |
 | 15 | [Web Attack Forensics - Drone Alone](https://tryhackme.com/room/webattackforensics-aoc2025-b4t7c1d5f8) | Correlação de logs do Apache e Sysmon no Splunk. As instruções da própria sala são autossuficientes para encontrar as respostas. |
 | 16 | [Forensics - Registry Furensics](https://tryhackme.com/room/registry-forensics-aoc2025-h6k9j2l5p8) | Investigação de hives do Registro do Windows com Registry Explorer. As instruções da própria sala são autossuficientes para encontrar as respostas. |
+| 17 | [CyberChef - Hoperation Save McSkidy](https://tryhackme.com/room/encoding-decoding-aoc2025-s1a4z7x0c3) | Decodificação em Base64, XOR e ROT13, além de quebra de hash MD5. As instruções da própria sala são autossuficientes para encontrar as respostas. |
 
 As missões opcionais ficam no [índice das Side Quests de 2025](../advent-of-cyber-2025-sidequest/README.md).
 
