@@ -21,8 +21,13 @@ Esta página lista as salas do [Advent of Cyber 2025](https://tryhackme.com/adve
 | 15 | [Web Attack Forensics - Drone Alone](https://tryhackme.com/room/webattackforensics-aoc2025-b4t7c1d5f8) | Correlação de logs do Apache e Sysmon no Splunk. As instruções da própria sala são autossuficientes para encontrar as respostas. |
 | 16 | [Forensics - Registry Furensics](https://tryhackme.com/room/registry-forensics-aoc2025-h6k9j2l5p8) | Investigação de hives do Registro do Windows com Registry Explorer. As instruções da própria sala são autossuficientes para encontrar as respostas. |
 | 17 | [CyberChef - Hoperation Save McSkidy](https://tryhackme.com/room/encoding-decoding-aoc2025-s1a4z7x0c3) | Decodificação em Base64, XOR e ROT13, além de quebra de hash MD5. As instruções da própria sala são autossuficientes para encontrar as respostas. |
+| 18 | [Obfuscation - The Egg Shell File](https://tryhackme.com/room/obfuscation-aoc2025-e5r8t2y6u9) | Análise e correção de script PowerShell com URL e chave de API ofuscadas. As instruções da própria sala são autossuficientes para encontrar as respostas. |
 | 19 | [ICS/Modbus - Claus for Concern](https://tryhackme.com/room/ICS-modbus-aoc2025-g3m6n9b1v4) | Investigação e recuperação de um PLC via Modbus TCP. As instruções da própria sala são autossuficientes para encontrar as respostas. |
 | 20 | [Race Conditions - Toy to The World](dia-20-race-conditions-toy-to-the-world.md) | Exploração de checkouts simultâneos e estoque inconsistente com script Python próprio. |
+| 21 | [Malware Analysis - Malhare.exe](https://tryhackme.com/room/htapowershell-aoc2025-p2l5k8j1h4) | Análise estática de HTA, Base64 e ROT13. As instruções da própria sala são autossuficientes para encontrar as respostas. |
+| 22 | [C2 Detection - Command & Carol](https://tryhackme.com/room/detecting-c2-with-rita-aoc2025-m9n2b5v8c1) | Conversão de PCAP em logs Zeek e análise de conexões com RITA. As instruções da própria sala são autossuficientes para encontrar as respostas. |
+| 23 | [AWS Security - S3cret Santa](https://tryhackme.com/room/cloudenum-aoc2025-y4u7i0o3p6) | Enumeração IAM, função temporária e leitura de objeto no S3. As instruções da própria sala são autossuficientes para encontrar as respostas. |
+| 24 | [Exploitation with cURL - Hoperation Eggsploit](dia-24-curl-hoperation-eggsploit.md) | Requisições HTTP, cookies, senhas, User-Agent e missão opcional de fechamento do wormhole. |
 
 As missões opcionais ficam no [índice das Side Quests de 2025](../advent-of-cyber-2025-sidequest/README.md).
 
