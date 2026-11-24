@@ -1,6 +1,6 @@
 # Série Advent of Cyber
 
-Guias em português do Brasil para as salas anuais **Advent of Cyber** do TryHackMe. Escolha a edição; em 2025, o índice reúne todos os dias e as Side Quests, com guias próprios para os desafios que exigem procedimentos adicionais.
+Guias em português do Brasil para as salas anuais **Advent of Cyber** do TryHackMe e para uma sala extra que reúne desafios da série. Escolha a edição; em 2025, o índice reúne todos os dias e as Side Quests, com guias próprios para os desafios que exigem procedimentos adicionais.
 
 | Edição | Assuntos principais |
 | --- | --- |
@@ -14,5 +14,6 @@ Guias em português do Brasil para as salas anuais **Advent of Cyber** do TryHac
 | [Advent of Cyber 2024 Side Quest](advent-of-cyber-2024-sidequest/README.md) | PCAP, ROS, heap, Active Directory e aplicações Web |
 | [Advent of Cyber 2025](advent-of-cyber-2025/README.md) | Linux, phishing, SIEM, IA, segurança Web, senhas, malware, redes, contêineres, perícia, sistemas industriais e nuvem |
 | [Advent of Cyber 2025 Side Quest](advent-of-cyber-2025-sidequest/README.md) | OSINT, engenharia reversa, exploração Web, DNS, SMTP e autenticação |
+| [Extra: 25 Days of Cyber Security](25-days-of-cyber-security/README.md) | Desafios de Web, redes, Linux, Windows, perícia e exploração final reunidos em uma sala; data desta versão não confirmada |
 
 [Voltar à página principal](../../README.md)

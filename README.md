@@ -6,7 +6,7 @@ Este repositório ajuda pessoas no Brasil a resolver as tarefas das salas do Try
 
 ## Guias
 
-- [Série Advent of Cyber](series/advent-of-cyber/README.md) - guias dos desafios de dezembro do TryHackMe, de 2019 a 2025, incluindo as Side Quests.
+- [Série Advent of Cyber](series/advent-of-cyber/README.md) - guias dos desafios de dezembro do TryHackMe, de 2019 a 2025, incluindo as Side Quests e a sala extra 25 Days of Cyber Security.
 
 ## Como usar
 
